@@ -33,10 +33,27 @@ public class SpawnBuildings : MonoBehaviour {
 	}
 
 	public void BuildingSpawn(int buildingNumber) {
-		for (int i = 0; i < buildingNumber; ++i) {
+		int half = buildingNumber / 2;
+		for (int i = 0; i < half; ++i) {
 			spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
 			spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
+			float scaleFactor = Random.Range (1, 40);
+			float bulkFactor = Random.Range (10, 30);
+			float bulkOther = Random.Range (1, 20);
 			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint, Quaternion.identity);
+			//tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
+			tempBuild.transform.localScale = new Vector3 (bulkFactor, scaleFactor, bulkOther);
+		}
+
+		for (int i = half; i < buildingNumber; ++i) {
+			spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
+			spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
+			float scaleFactor = Random.Range (1, 120);
+			float bulkFactor = Random.Range (10, 30);
+			float bulkOther = Random.Range (1, 20);
+			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint, Quaternion.identity);
+			//tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
+			tempBuild.transform.localScale = new Vector3 (bulkFactor, scaleFactor, bulkOther);
 		}
 	}
 }
