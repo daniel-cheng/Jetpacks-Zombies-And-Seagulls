@@ -24,6 +24,7 @@ GameObject:
   - 23: {fileID: 23000010801165426}
   - 54: {fileID: 54000012566019914}
   - 114: {fileID: 114000010465276860}
+  - 114: {fileID: 114000012436475440}
   m_Layer: 0
   m_Name: Main Character
   m_TagString: Untagged
@@ -93,7 +94,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &114000010465276860
 MonoBehaviour:
@@ -104,6 +105,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d70b90a51b6aed1428b63175459c71b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 10
+--- !u!114 &114000012436475440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013174447686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb81f65d581440645b76bd2f8ea5067c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!136 &136000012839130708

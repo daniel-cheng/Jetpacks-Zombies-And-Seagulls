@@ -4,6 +4,7 @@ using System.Collections;
 public class MainCharacterMovement : MonoBehaviour {
 
     Rigidbody myRigidbody;
+	public float friction = 10;
     
     void Awake()
     {
@@ -17,8 +18,15 @@ public class MainCharacterMovement : MonoBehaviour {
 	void Update () {
         if (Input.GetButton("Vertical"))
         {
-            float vertAxis = Input.GetAxis("Vertical");
-            myRigidbody.AddForce(new Vector3(0,vertAxis*5,0));
+            float zAxis = Input.GetAxis("Vertical");
+			myRigidbody.AddForce(new Vector3(0,0,zAxis*friction));
         }
+
+		if (Input.GetButton("Horizontal"))
+		{
+			float zAxis = Input.GetAxis("Horizontal");
+			myRigidbody.AddForce(new Vector3(zAxis*friction,0,0));
+		}
+
 	}
 }
