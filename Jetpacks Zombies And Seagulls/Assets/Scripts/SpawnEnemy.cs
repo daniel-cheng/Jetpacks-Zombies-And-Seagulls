@@ -7,7 +7,6 @@ public class SpawnEnemy : MonoBehaviour {
     public int enemyCount = 1;
     private Vector3 spawnPoint;
     List<GameObject> enemyList = new List<GameObject>();
-    public static SpawnEnemy enemySpawnerReference;
 
 	// Use this for initialization
 	void Start ()
@@ -30,8 +29,8 @@ public class SpawnEnemy : MonoBehaviour {
     {
         for (int i = 0; i < enemyNumber; ++i)
         {
-            spawnPoint.x = Random.Range(-25, 25);
-            spawnPoint.z = Random.Range(-25, 25);
+            spawnPoint.x = Random.Range(-75, 75);
+            spawnPoint.z = Random.Range(-75, 75);
             GameObject tempEnemy = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
             tempEnemy.GetComponentInChildren<EnemyMovement>().Player = GameObject.FindWithTag("Player").transform;
             enemyList.Add(tempEnemy);
@@ -40,6 +39,7 @@ public class SpawnEnemy : MonoBehaviour {
     }
     public void KillEnemies()
     {
+		Debug.Log (enemyList);
         foreach(GameObject enemyRef in enemyList)
         {
             Destroy(enemyRef);

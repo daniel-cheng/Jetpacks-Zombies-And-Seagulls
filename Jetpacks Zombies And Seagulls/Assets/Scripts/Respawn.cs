@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Respawn : MonoBehaviour
 {
 
+	public List<SpawnEnemy> spawnList = new List<SpawnEnemy>();
 	
 	void RespawnPlayer ()
     {
@@ -12,8 +14,10 @@ public class Respawn : MonoBehaviour
 	}
     void RespawnEnemies()
     {
-        SpawnEnemy.enemySpawnerReference.KillEnemies();
-        SpawnEnemy.enemySpawnerReference.Spawn(3);
+		foreach (SpawnEnemy spawner in FindObjectsOfType(typeof(SpawnEnemy))) {
+			spawner.KillEnemies ();
+			spawner.Spawn(spawner.enemyCount);
+		}
     }
     public void Restart()
     {
