@@ -10,17 +10,21 @@ public class EnemyMovement : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		
 		myRigidbody = GetComponent<Rigidbody>();
 		Player = GameObject.FindWithTag("Player").transform;
+        //Debug.Log("Awaking");
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		transform.LookAt (Player);
-
-		if (Vector3.Distance (transform.position, Player.position) <= senseDist && !CharacterDeath.isDead) {
+	void Update () {      
+        if (Player == null)
+        {
+            Player = GameObject.FindWithTag("Player").transform;
+        }
+        transform.LookAt(Player);
+        if (Vector3.Distance (transform.position, Player.position) <= senseDist && !CharacterDeath.isDead) {
 
 			//transform.position += transform.forward * moveSpeed;
 			myRigidbody.AddRelativeForce (Vector3.forward * moveSpeed, ForceMode.Impulse);
