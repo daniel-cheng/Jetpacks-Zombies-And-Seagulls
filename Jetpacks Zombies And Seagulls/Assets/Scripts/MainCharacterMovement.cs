@@ -13,7 +13,7 @@ public class MainCharacterMovement : MonoBehaviour {
         myRigidbody = GetComponent<Rigidbody>();
     }
 	
-	void Update () {
+	void FixedUpdate () {
         if (Input.GetButton("Vertical") && !CharacterDeath.isDead)
         {
             float zAxis = Input.GetAxis("Vertical");
@@ -26,13 +26,9 @@ public class MainCharacterMovement : MonoBehaviour {
 			myRigidbody.AddForce(new Vector3(zAxis*friction,0,0));
 		}
 
-		if (Input.GetButtonDown ("Jump") && !CharacterDeath.isDead) {
+		if (Input.GetButton ("Jump") && !CharacterDeath.isDead) {
 			myRigidbody.AddForce(new Vector3(0,jumpSpeed,0));
 		}
 			
-	}
-
-	void FixedUpdate() {
-
 	}
 }

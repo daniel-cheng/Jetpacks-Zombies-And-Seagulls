@@ -9,7 +9,8 @@ public class Pause : MonoBehaviour
     void Awake ()
     {
         pauseUI = (GameObject)Instantiate(Resources.Load("Pause UI"));
-        pauseUI.SetActive(false);
+
+        ResumeGame();
     }
 
     void Update()
