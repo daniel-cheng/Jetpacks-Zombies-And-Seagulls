@@ -42,7 +42,7 @@ public class SpawnEnemy : MonoBehaviour {
             GameObject tempEnemy = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
             tempEnemy.GetComponentInChildren<EnemyMovement>().Player = GameObject.FindWithTag("Player").transform;
             enemyList.Add(tempEnemy);
-            Debug.Log(tempEnemy.GetComponent<EnemyMovement>().Player.name);
+            //Debug.Log(tempEnemy.GetComponent<EnemyMovement>().Player.name);
         }
     }
     public void KillEnemies()
