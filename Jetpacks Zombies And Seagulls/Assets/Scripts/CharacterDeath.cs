@@ -22,6 +22,6 @@ public class CharacterDeath : MonoBehaviour
     {
         Instantiate(Resources.Load("Death Canvas"));
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
