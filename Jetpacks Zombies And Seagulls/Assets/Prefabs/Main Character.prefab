@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70b90a51b6aed1428b63175459c71b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friction: 20
+  friction: 40
   jumpSpeed: 60
 --- !u!114 &114000012436475440
 MonoBehaviour:
