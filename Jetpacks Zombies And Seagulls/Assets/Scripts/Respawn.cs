@@ -19,9 +19,18 @@ public class Respawn : MonoBehaviour
 			spawner.Spawn(spawner.enemyCount);
 		}
     }
+
+	void RespawnBuildings()
+	{
+		foreach (SpawnBuildings spawn in FindObjectsOfType(typeof(SpawnBuildings))) {
+			spawn.Reconstruct ();
+			spawn.BuildingSpawn(spawn.buildingCount);
+		}
+	}
     public void Restart()
 	{
         RespawnPlayer();
+		RespawnBuildings ();
         RespawnEnemies();
 		Timer.ResetTime ();
     }

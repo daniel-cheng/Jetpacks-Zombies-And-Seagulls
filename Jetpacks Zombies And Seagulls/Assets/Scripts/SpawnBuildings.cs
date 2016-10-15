@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpawnBuildings : MonoBehaviour {
 
@@ -7,6 +8,7 @@ public class SpawnBuildings : MonoBehaviour {
 	public int buildingCount = 100;
     public Vector2 buildingRange = new Vector2(100, 100);
     private Vector3 spawnPoint;
+	List<GameObject> buildingList = new List<GameObject>();
 	public static SpawnBuildings buildingSpawnerRef;
 
 
@@ -43,6 +45,7 @@ public class SpawnBuildings : MonoBehaviour {
 			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint, Quaternion.identity);
 			//tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
 			tempBuild.transform.localScale = new Vector3 (bulkFactor, scaleFactor, bulkOther);
+			buildingList.Add(tempBuild);
 		}
 
 		for (int i = half; i < buildingNumber; ++i) {
@@ -54,6 +57,17 @@ public class SpawnBuildings : MonoBehaviour {
 			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint, Quaternion.identity);
 			//tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
 			tempBuild.transform.localScale = new Vector3 (bulkFactor, scaleFactor, bulkOther);
+			buildingList.Add(tempBuild);
 		}
+	}
+
+	public void Reconstruct()
+	{
+		
+		foreach(GameObject buildingRef in buildingList)
+		{
+			Destroy(buildingRef);
+		}
+		buildingList.Clear();
 	}
 }

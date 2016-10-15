@@ -29,8 +29,8 @@ public class SpawnEnemy : MonoBehaviour {
     {
         for (int i = 0; i < enemyNumber; ++i)
         {
-            spawnPoint.x = Random.Range(-75, 75);
-            spawnPoint.z = Random.Range(-75, 75);
+            spawnPoint.x = Random.Range(-150, 150);
+            spawnPoint.z = Random.Range(-150, 150);
             GameObject tempEnemy = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
             tempEnemy.GetComponentInChildren<EnemyMovement>().Player = GameObject.FindWithTag("Player").transform;
             enemyList.Add(tempEnemy);

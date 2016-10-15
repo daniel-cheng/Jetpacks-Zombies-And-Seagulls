@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014225462442}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.2901397, y: 0.6345373, z: 0.59618324}
+  m_LocalPosition: {x: -37.391914, y: 0, z: -163.20192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -138,4 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   moveSpeed: 4
-  senseDist: 30
+  senseDist: 50
