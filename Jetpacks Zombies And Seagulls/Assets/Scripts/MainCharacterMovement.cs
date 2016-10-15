@@ -6,6 +6,7 @@ public class MainCharacterMovement : MonoBehaviour {
     Rigidbody myRigidbody;
 	public float friction = 10;
 	public float jumpSpeed = 20;
+    public float jetPackFuel = 100;
 
 
     void Awake()
@@ -26,9 +27,18 @@ public class MainCharacterMovement : MonoBehaviour {
 			myRigidbody.AddRelativeForce(new Vector3(zAxis*friction,0,0));
 		}
 
-		if (Input.GetButton ("Jump") && !CharacterDeath.isDead) {
-			myRigidbody.AddForce(new Vector3(0,jumpSpeed,0));
+		if (Input.GetButton ("Jump") && !CharacterDeath.isDead)
+        {
+            if(jetPackFuel > 0)
+            {
+                myRigidbody.AddForce(new Vector3(0, jumpSpeed, 0));
+                jetPackFuel = jetPackFuel - 100 * Time.fixedDeltaTime;
+            }
 		}
+        if(jetPackFuel < 100 )
+        {
+            jetPackFuel = jetPackFuel + 20 * Time.fixedDeltaTime;
+        }
 			
 	}
 }
