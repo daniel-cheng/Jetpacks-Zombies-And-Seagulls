@@ -20,8 +20,9 @@ public class Respawn : MonoBehaviour
 		}
     }
     public void Restart()
-    {
+	{
         RespawnPlayer();
         RespawnEnemies();
+		Timer.ResetTime ();
     }
 }
