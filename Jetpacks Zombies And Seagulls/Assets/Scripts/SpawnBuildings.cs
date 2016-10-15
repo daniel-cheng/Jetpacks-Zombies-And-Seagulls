@@ -4,8 +4,9 @@ using System.Collections;
 public class SpawnBuildings : MonoBehaviour {
 
 	public GameObject building;
-	public int buildingCount = 5;
-	private Vector3 spawnPoint;
+	public int buildingCount = 100;
+    public Vector2 buildingRange = new Vector2(100, 100);
+    private Vector3 spawnPoint;
 	public static SpawnBuildings buildingSpawnerRef;
 
 
@@ -33,8 +34,8 @@ public class SpawnBuildings : MonoBehaviour {
 
 	public void BuildingSpawn(int buildingNumber) {
 		for (int i = 0; i < buildingNumber; ++i) {
-			spawnPoint.x = Random.Range (-25, 25);
-			spawnPoint.z = Random.Range (-25, 25);
+			spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
+			spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
 			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint, Quaternion.identity);
 		}
 	}
