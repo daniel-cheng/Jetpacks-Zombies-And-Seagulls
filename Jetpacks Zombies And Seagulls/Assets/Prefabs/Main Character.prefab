@@ -291,9 +291,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013174447686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7a6c5c3b6ee9540ac8207921e3d7bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 939af76fa42d54a4aae88604e1c04fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotLimit: {x: 330, y: 30}
   lookSpeed: 10
 --- !u!114 &114000013810747874
 MonoBehaviour:
