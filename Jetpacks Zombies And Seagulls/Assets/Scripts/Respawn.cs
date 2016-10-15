@@ -15,7 +15,7 @@ public class Respawn : MonoBehaviour
         SpawnEnemy.enemySpawnerReference.KillEnemies();
         SpawnEnemy.enemySpawnerReference.Spawn(3);
     }
-    void Restart()
+    public void Restart()
     {
         RespawnPlayer();
         RespawnEnemies();
