@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody>();
+		Player = CharacterDeath.character.transform;
 	}
 	
 	// Update is called once per frame
