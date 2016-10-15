@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour {
 	void Update () {
 		transform.LookAt (Player);
 
-		if (Vector3.Distance (transform.position, Player.position) <= senseDist) {
+		if (Vector3.Distance (transform.position, Player.position) <= senseDist && !CharacterDeath.isDead) {
 
 			//transform.position += transform.forward * moveSpeed;
 			myRigidbody.AddRelativeForce (Vector3.forward * moveSpeed, ForceMode.Impulse);

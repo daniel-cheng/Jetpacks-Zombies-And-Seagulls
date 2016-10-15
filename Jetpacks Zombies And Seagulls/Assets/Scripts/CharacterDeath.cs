@@ -3,12 +3,13 @@ using System.Collections;
 
 public class CharacterDeath : MonoBehaviour
 {
-    public static GameObject character;
+    
+	public static bool isDead;
     GameObject deathUI;
 
     void Awake ()
     {
-        character = gameObject;
+		MainCharacterMovement.character = gameObject;
     }
 
     void OnCollisionEnter(Collision col)
@@ -25,7 +26,7 @@ public class CharacterDeath : MonoBehaviour
         {
             deathUI = (GameObject)Instantiate(Resources.Load("Death Canvas"));
         }
-        GetComponent<MainCharacterMovement>().isDead = true;
+        isDead = true;
         //Destroy(gameObject);
     }
 }
