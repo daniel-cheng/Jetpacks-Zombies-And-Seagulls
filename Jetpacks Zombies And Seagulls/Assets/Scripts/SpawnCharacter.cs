@@ -18,15 +18,13 @@ public class SpawnCharacter : MonoBehaviour
             Debug.Log("I am not worthy");
             Destroy(gameObject);
         }
-    }
 
-    void Start()
-    {
         SpawnPlayer();
     }
 
     public void SpawnPlayer()
     {
+        CharacterDeath.isDead = false;
         character = (GameObject)Instantiate(characterPrefab, transform.position, transform.rotation);
     }
 }
