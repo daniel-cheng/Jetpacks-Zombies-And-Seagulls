@@ -17,14 +17,7 @@ public class SpawnEnemy : MonoBehaviour {
 
     void Awake()
     {
-        if(enemySpawnerReference == null)
-        {
-            enemySpawnerReference = this;
-        }
-        else if (enemySpawnerReference != this)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 	
 	// Update is called once per frame
