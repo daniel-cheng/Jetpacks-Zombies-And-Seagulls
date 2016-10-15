@@ -8,10 +8,12 @@ public class EnemyMovement : MonoBehaviour {
 	public float moveSpeed = 7;
 	public float senseDist = 10;
 
+
 	// Use this for initialization
 	void Start () {
+		
 		myRigidbody = GetComponent<Rigidbody>();
-		Player = MainCharacterMovement.character.transform;
+		Player = GameObject.FindWithTag("Player").transform;
 	}
 	
 	// Update is called once per frame
