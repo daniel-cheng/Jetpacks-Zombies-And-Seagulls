@@ -23,7 +23,8 @@ public class CheckPoint : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Check Point"); 
+
+            Destroy(checkPoint); 
         }
     }
 }

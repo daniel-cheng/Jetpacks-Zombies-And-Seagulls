@@ -6,8 +6,8 @@ public class MainCharacterMovement : MonoBehaviour {
     Rigidbody myRigidbody;
 	public float friction = 10;
 	public float jumpSpeed = 20;
-    public float jetPackFuel = 100;
-
+    private float jetPackFuel = 100;
+    public float refuelRate = 15;
 
     void Awake()
     {
@@ -37,7 +37,7 @@ public class MainCharacterMovement : MonoBehaviour {
 		}
         if(jetPackFuel < 100 )
         {
-            jetPackFuel = jetPackFuel + 20 * Time.fixedDeltaTime;
+            jetPackFuel = jetPackFuel + refuelRate * Time.fixedDeltaTime;
         }
 			
 	}
