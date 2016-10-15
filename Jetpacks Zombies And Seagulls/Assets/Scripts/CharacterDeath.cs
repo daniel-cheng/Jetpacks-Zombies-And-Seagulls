@@ -4,6 +4,7 @@ using System.Collections;
 public class CharacterDeath : MonoBehaviour
 {
     public static GameObject character;
+    GameObject deathUI;
 
     void Awake ()
     {
@@ -20,8 +21,11 @@ public class CharacterDeath : MonoBehaviour
 
     public void Death()
     {
-        Instantiate(Resources.Load("Death Canvas"));
-
+        if (deathUI == null)
+        {
+            deathUI = (GameObject)Instantiate(Resources.Load("Death Canvas"));
+        }
+        GetComponent<MainCharacterMovement>().isDead = true;
         //Destroy(gameObject);
     }
 }
