@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  moveSpeed: 7
-  senseDist: 10
+  moveSpeed: 4
+  senseDist: 30

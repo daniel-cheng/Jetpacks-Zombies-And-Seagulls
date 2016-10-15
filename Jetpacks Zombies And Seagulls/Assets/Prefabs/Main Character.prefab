@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   friction: 20
-  jumpSpeed: 1000
+  jumpSpeed: 60
 --- !u!114 &114000012436475440
 MonoBehaviour:
   m_ObjectHideFlags: 1
