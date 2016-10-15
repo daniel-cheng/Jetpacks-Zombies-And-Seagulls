@@ -40,4 +40,9 @@ public class Pause : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    void OnDestroy ()
+    {
+        Destroy(pauseUI);
+    }
 }
