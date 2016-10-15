@@ -20,7 +20,10 @@ public class EnemyMovement : MonoBehaviour {
 		if (Vector3.Distance (transform.position, Player.position) <= senseDist) {
 
 			//transform.position += transform.forward * moveSpeed;
-			myRigidbody.AddRelativeForce(Vector3.forward * moveSpeed, ForceMode.Force);
+			myRigidbody.AddRelativeForce (Vector3.forward * moveSpeed, ForceMode.Impulse);
+		} else {
+			//myRigidbody.AddRelativeForce (Vector3.zero, ForceMode.VelocityChange);
+			myRigidbody.velocity = Vector3.zero;
 		}
 	}
 }
