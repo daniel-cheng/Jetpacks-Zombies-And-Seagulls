@@ -26,5 +26,6 @@ public class SpawnCharacter : MonoBehaviour
     {
         CharacterDeath.isDead = false;
         character = (GameObject)Instantiate(characterPrefab, transform.position, transform.rotation);
+        character.GetComponent<Pause>().ResumeGame();
     }
 }

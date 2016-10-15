@@ -26,6 +26,10 @@ public class CharacterDeath : MonoBehaviour
         {
             deathUI = (GameObject)Instantiate(Resources.Load("Death Canvas"));
         }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         isDead = true;
         //Destroy(gameObject);
     }
