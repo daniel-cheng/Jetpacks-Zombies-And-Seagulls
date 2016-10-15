@@ -29,4 +29,9 @@ public class CharacterDeath : MonoBehaviour
         isDead = true;
         //Destroy(gameObject);
     }
+
+    void OnDestroy ()
+    {
+        Destroy(deathUI);
+    }
 }
