@@ -5,6 +5,8 @@ public class MainCharacterMovement : MonoBehaviour {
 	public static GameObject character;
     Rigidbody myRigidbody;
 	public float friction = 10;
+	public float jumpSpeed = 10;
+	public bool Jump;
 
     void Awake()
     {
@@ -24,5 +26,15 @@ public class MainCharacterMovement : MonoBehaviour {
 			myRigidbody.AddForce(new Vector3(zAxis*friction,0,0));
 		}
 
+		if (Input.GetButtonDown ("Jump") && !CharacterDeath.isDead) {
+			Jump = true;
+		}
+			
+	}
+
+	void FixedUpdate() {
+		if (Jump) {
+			myRigidbody.AddForce(new Vector3(0,1*jumpSpeed,0));
+		}
 	}
 }

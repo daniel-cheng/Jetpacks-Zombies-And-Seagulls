@@ -7,7 +7,7 @@ public class Respawn : MonoBehaviour
 	
 	void RespawnPlayer ()
     {
-        Destroy(CharacterDeath.character);
+        Destroy(MainCharacterMovement.character);
         SpawnCharacter.spawner.SpawnPlayer();
 	}
 }
