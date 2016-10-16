@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Zombie Controller
+  m_Name: Seagull Controller
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -39,7 +39,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b0274ab66f43e8249822d13e6c3c1195, type: 3}
+  m_Motion: {fileID: 7400000, guid: 0a2757a7481ab5241940445a813695d5, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
