@@ -140,7 +140,7 @@ public class SpawnBuildings : MonoBehaviour {
 		for (int i = 0; i < half; ++i) {
 			spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
 			spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
-			float scaleFactor = Random.Range (1, 40);
+			float scaleFactor = Random.Range (15, 40);
 			float bulkFactor = Random.Range (10, 30);
 			float bulkOther = Random.Range (1, 20);
 			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity);
@@ -152,7 +152,7 @@ public class SpawnBuildings : MonoBehaviour {
 		for (int i = half; i < buildingNumber; ++i) {
 			spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
 			spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
-			float scaleFactor = Random.Range (1, 120);
+			float scaleFactor = Random.Range (15, 120);
 			float bulkFactor = Random.Range (10, 30);
 			float bulkOther = Random.Range (1, 20);
 			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity);
