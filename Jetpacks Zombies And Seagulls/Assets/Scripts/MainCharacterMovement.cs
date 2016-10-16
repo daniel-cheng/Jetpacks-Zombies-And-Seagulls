@@ -34,13 +34,12 @@ public class MainCharacterMovement : MonoBehaviour {
             {
                 myRigidbody.AddForce(new Vector3(0, jumpSpeed, 0));
                 jetPackFuel = jetPackFuel - 100 * Time.fixedDeltaTime;
-                Debug.Log(jetPackFuel);
+                //Debug.Log(jetPackFuel);
             }
 		}
         if(jetPackFuel < 100 )
         {
             jetPackFuel = jetPackFuel + refuelRate * Time.fixedDeltaTime;
         }
-        GetComponent<Text>().text = "Fuel: " + Mathf.Floor(jetPackFuel).ToString();
     }
 }
