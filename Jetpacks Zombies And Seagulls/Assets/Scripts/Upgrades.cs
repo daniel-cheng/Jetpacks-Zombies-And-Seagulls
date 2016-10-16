@@ -50,13 +50,14 @@ public class Upgrades : MonoBehaviour {
         functions [rand]();
 
 		totalUpgrades++;
-        //Debug.Log("Total Upgrades= " + totalUpgrades + ", New Upgrade= " + functions[rand].Method.Name.ToString());
+        Debug.Log("Total Upgrades= " + totalUpgrades + ", New Upgrade= " + functions[rand].Method.Name.ToString());
 	}
 
 	void addMoveSpeed() {
 		Player.GetComponent<MainCharacterMovement>().friction += 10;
+        Player.GetComponent<MaxSpeed>().maxVelocity += new Vector3(10, 0, 10);
 
-	}
+    }
 
 	void addJetFuel() {
         Player.GetComponent<MainCharacterMovement>().jetPackFuel += 10;
