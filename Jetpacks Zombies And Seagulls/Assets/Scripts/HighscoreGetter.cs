@@ -6,12 +6,12 @@ public class HighscoreGetter : MonoBehaviour
 {
     GameObject[] highscores = new GameObject[10];
 
-	void Start ()
+    void Start()
     {
         CreateScoreList();
-	}
+    }
 
-    void CreateScoreList ()
+    void CreateScoreList()
     {
         for (int a = 1; a <= 10; a++)
         {
@@ -21,7 +21,7 @@ public class HighscoreGetter : MonoBehaviour
         }
     }
 
-    public void ClearHighscores ()
+    public void ClearHighscores()
     {
         for (int a = 1; a <= 10; a++)
         {

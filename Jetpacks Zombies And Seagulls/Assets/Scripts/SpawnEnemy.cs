@@ -6,6 +6,7 @@ public class SpawnEnemy : MonoBehaviour {
 
     public GameObject[] enemyPrefabs;
     public int enemyCount;
+    private GameObject enemyParent;
     //public float thresholdPercent;  //Percent of total enemies left before spawning more
     //int enemyThreshold;
 
@@ -28,6 +29,12 @@ public class SpawnEnemy : MonoBehaviour {
 
     public int safetyRadius;
     
+    void Awake ()
+    {
+        enemyParent = new GameObject();
+        enemyParent.name = "Enemy Parent Object";
+    }
+
 	void Start ()
     {
         Spawn(enemyCount);
@@ -47,7 +54,7 @@ public class SpawnEnemy : MonoBehaviour {
 
             GetSpawnPoint();
             
-            GameObject tempEnemy = (GameObject)Instantiate(enemyPrefabs[enemyIndex], spawnPoint, Quaternion.identity);
+            GameObject tempEnemy = (GameObject)Instantiate(enemyPrefabs[enemyIndex], spawnPoint, Quaternion.identity, enemyParent.transform);
             //tempEnemy.GetComponentInChildren<EnemyMovement>().Player = GameObject.FindWithTag("Player").transform;
             tempEnemy.GetComponent<EnemyManager>().spawner = this;
 

@@ -29,10 +29,10 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (stayGrounded)
         {
-            Transform tempLookAt = new GameObject().transform;
-            tempLookAt.position = new Vector3(Player.position.x, transform.position.y, Player.position.z);
+            Vector3 tempLookAt = new Vector3(Player.position.x, transform.position.y, Player.position.z);
 
             transform.LookAt(tempLookAt);
+            
         }
     }
 
