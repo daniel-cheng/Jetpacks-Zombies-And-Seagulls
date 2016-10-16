@@ -143,7 +143,7 @@ public class SpawnBuildings : MonoBehaviour {
 			float scaleFactor = Random.Range (15, 40);
 			float bulkFactor = Random.Range (10, 30);
 			float bulkOther = Random.Range (1, 20);
-			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity);
+			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
 			//tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
 			tempBuild.transform.localScale = new Vector3 (bulkFactor, scaleFactor, bulkOther);
 			buildingList.Add(tempBuild);
@@ -155,7 +155,7 @@ public class SpawnBuildings : MonoBehaviour {
 			float scaleFactor = Random.Range (15, 120);
 			float bulkFactor = Random.Range (10, 30);
 			float bulkOther = Random.Range (1, 20);
-			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity);
+			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
 			//tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
 			tempBuild.transform.localScale = new Vector3 (bulkFactor, scaleFactor, bulkOther);
 			buildingList.Add(tempBuild);
