@@ -5,9 +5,9 @@ using System.Collections;
 public class MainCharacterMovement : MonoBehaviour {
 	public static GameObject character;
     Rigidbody myRigidbody;
-	public float friction = 10;
-	public float jumpSpeed = 20;
-    public static float jetPackFuel = 100000;
+	public float friction = 40;
+	public float jumpSpeed = 60;
+    public static float jetPackFuel = 100;
     public float refuelRate = 15;
 
     void Awake()
