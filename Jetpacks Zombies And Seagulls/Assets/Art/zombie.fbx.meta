@@ -138,7 +138,7 @@ ModelImporter:
     400128: //RootNode
     400130: zombie
     4300000: zombie
-    7400000: Take 001
+    7400000: Zombie
     9500000: //RootNode
     13700000: zombie
   materials:
@@ -163,7 +163,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Zombie
       takeName: Take 001
       firstFrame: 4
       lastFrame: 24
