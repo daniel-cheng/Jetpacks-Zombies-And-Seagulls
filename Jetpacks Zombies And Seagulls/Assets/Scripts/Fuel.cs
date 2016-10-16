@@ -6,14 +6,17 @@ public class Fuel : MonoBehaviour {
 
     // Use this for initialization
     private float currentFuel = 0;
-	void Start () {
-	
+    public GameObject fuelBar;
+	void Start ()
+    {
+	    
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        currentFuel = MainCharacterMovement.jetPackFuel;
+
+        currentFuel = MainCharacterMovement.character.GetComponent< MainCharacterMovement>().jetPackFuel;
 
         if (currentFuel < 0 )
         {

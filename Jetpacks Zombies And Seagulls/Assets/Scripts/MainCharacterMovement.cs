@@ -7,7 +7,7 @@ public class MainCharacterMovement : MonoBehaviour {
     Rigidbody myRigidbody;
 	public float friction = 40;
 	public float jumpSpeed = 60;
-    public static float jetPackFuel = 100;
+    public float jetPackFuel = 100;
     public float refuelRate = 15;
 
     void Awake()
