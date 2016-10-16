@@ -7,7 +7,7 @@ public class Fuel : MonoBehaviour {
     // Use this for initialization
     private float currentFuel = 0;
     private float maxFuel = 100f;
-    public GameObject fuelBar = null;
+    public GameObject fuelBar;
 	void Start ()
     {
 	    
