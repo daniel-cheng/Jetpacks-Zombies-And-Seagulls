@@ -44,8 +44,8 @@ GameObject:
   - 54: {fileID: 54000012566019914}
   - 114: {fileID: 114000011103161798}
   - 114: {fileID: 114000010465276860}
-  - 114: {fileID: 114000012436475440}
   - 114: {fileID: 114000013566441196}
+  - 114: {fileID: 114000012436475440}
   - 114: {fileID: 114000013810747874}
   m_Layer: 0
   m_Name: Main Character
@@ -289,9 +289,9 @@ MonoBehaviour:
   - {fileID: 1000013226583130, guid: 7b27ad46d325f8c4c94c84e4b51c779c, type: 2}
   - {fileID: 1000014225462442, guid: 891188503f78d3b479480825729fca83, type: 2}
   enemyCount: 200
-  thresholdPercent: 0.75
+  thresholdPercent: 0.6
   enemyRange: {x: 100, y: 100}
-  safetyRadius: 0
+  safetyRadius: 25
 --- !u!114 &114000012436475440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotLimit: {x: 330, y: 30}
-  lookSpeed: 10
+  lookSpeed: 7
 --- !u!114 &114000013810747874
 MonoBehaviour:
   m_ObjectHideFlags: 1

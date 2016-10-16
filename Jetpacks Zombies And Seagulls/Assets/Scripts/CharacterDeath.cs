@@ -22,6 +22,8 @@ public class CharacterDeath : MonoBehaviour
 
     public void Death()
     {
+        isDead = true;
+
         if (deathUI == null)
         {
             deathUI = (GameObject)Instantiate(Resources.Load("Death Canvas"));
@@ -30,8 +32,7 @@ public class CharacterDeath : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        isDead = true;
-        //Destroy(gameObject);
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     void OnDestroy ()

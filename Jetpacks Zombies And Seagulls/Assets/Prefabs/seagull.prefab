@@ -21,14 +21,14 @@ GameObject:
   - 4: {fileID: 4000011742448978}
   - 33: {fileID: 33000013470935440}
   - 23: {fileID: 23000010419794650}
+  - 65: {fileID: 65000011283769798}
   - 95: {fileID: 95000011676786598}
   - 54: {fileID: 54000013072224458}
-  - 114: {fileID: 114000012577820980}
-  - 65: {fileID: 65000011283769798}
-  - 114: {fileID: 114000013494690854}
   - 82: {fileID: 82000012450054712}
+  - 114: {fileID: 114000013494690854}
+  - 114: {fileID: 114000012577820980}
   m_Layer: 0
-  m_Name: seagull
+  m_Name: Seagull
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 127
   DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
@@ -213,8 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5f3ee59ec064947ba84c38751c0278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  moveSpeed: 4
+  moveSpeed: 5
   senseDist: 50
 --- !u!114 &114000013494690854
 MonoBehaviour:
@@ -228,5 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  despawnRange: 300
+  soundPlayer: 0
+  despawnRange: 100
+  soundDelay: 0.3
   enemyType: 0

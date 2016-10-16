@@ -2,24 +2,24 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Timer : MonoBehaviour {
+public class Timer : MonoBehaviour
+{
 
-	public static float timer = 0;
+    public static float timer = 0;
+    
+    void Update()
+    {
+        if (!CharacterDeath.isDead)
+        {
+            timer += Time.deltaTime;
+        }
+        GetComponent<Text>().text = "Survived: " + Mathf.Floor(timer).ToString() + " seconds";
+    }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (!CharacterDeath.isDead) {
-			timer += Time.deltaTime;
-		}
-		GetComponent<Text>().text = "Survived: "+ Mathf.Floor(timer).ToString() +" seconds"; 
-	}
+    public static void ResetTime()
+    {
+        ScoreManager.scoreKeeper.AddScore((int)timer);
 
-	public static void ResetTime() {
-		timer = 0;
-	}
+        timer = 0;
+    }
 }
