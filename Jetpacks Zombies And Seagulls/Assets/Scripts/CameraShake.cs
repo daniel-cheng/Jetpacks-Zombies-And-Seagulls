@@ -41,7 +41,6 @@ public class CameraShake : MonoBehaviour
 			shake_intensity -= shake_decay;
 
 		} else {
-			Debug.Log ("stopped shaking");
 			shaking = false;
 			_transform.localPosition = originPosition;
 			_transform.localRotation = originRotation;
