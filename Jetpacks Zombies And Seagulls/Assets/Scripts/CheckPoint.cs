@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Checkpoint : MonoBehaviour
+public class CheckPoint : MonoBehaviour
 {
     GameObject waypoint;
     bool activeShop = true;
