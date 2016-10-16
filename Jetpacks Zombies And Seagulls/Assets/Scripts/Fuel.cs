@@ -10,7 +10,7 @@ public class Fuel : MonoBehaviour {
     public GameObject fuelBar;
 	void Start ()
     {
-        maxFuel = MainCharacterMovement.character.GetComponent<MainCharacterMovement>().jetPackFuel; ;
+        maxFuel = MainCharacterMovement.character.GetComponent<MainCharacterMovement>().jetPackFuel;
     }
 
     // Update is called once per frame
