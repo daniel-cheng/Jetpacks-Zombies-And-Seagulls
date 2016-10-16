@@ -40,6 +40,7 @@ public class Upgrades : MonoBehaviour {
 		functions.Add (addJumpSpeed);
 		functions.Add (addRefuelRate);
 		functions.Add (addMoveSpeed);
+		functions.Add (addShake);
 	}
 	
 	// Update is called once per frame
@@ -79,6 +80,10 @@ public class Upgrades : MonoBehaviour {
 
 	}
 
+	void addShake() {
+		CameraShake.shake_intensity += 0.01f;
+	}
+
 	public void resetStats() {
 		Player.GetComponent<MainCharacterMovement>().refuelRate = refuelOriginal;
         Player.GetComponent<MaxSpeed>().maxVelocity = maxSpeedOriginal;
@@ -86,6 +91,7 @@ public class Upgrades : MonoBehaviour {
 		Player.GetComponent<MainCharacterMovement>().friction = moveOriginal;
 		Player.GetComponent<MainCharacterMovement>().jumpSpeed = jumpOriginal;
 		totalUpgrades = 0;
+		CameraShake.shake_intensity = 0;
 	}
 		
 }

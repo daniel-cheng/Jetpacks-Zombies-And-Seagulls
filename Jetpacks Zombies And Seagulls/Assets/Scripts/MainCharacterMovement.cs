@@ -33,8 +33,10 @@ public class MainCharacterMovement : MonoBehaviour {
 			if (jetPackFuel > 0) {
 				myRigidbody.AddForce (new Vector3 (0, jumpSpeed, 0));
 				jetPackFuel = jetPackFuel - 100 * Time.fixedDeltaTime;
-				CameraShake.shake_intensity = 0.03f;
-				CameraShake.Shake ();
+				if (CameraShake.shake_intensity == 0) {
+					CameraShake.shake_intensity = 0.03f;
+					CameraShake.Shake ();
+				}
 			} else {
 				CameraShake.shake_intensity = 0f;
 			}
