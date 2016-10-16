@@ -48,6 +48,7 @@ GameObject:
   - 114: {fileID: 114000013566441196}
   - 114: {fileID: 114000012436475440}
   - 114: {fileID: 114000013810747874}
+  - 114: {fileID: 114000012337790902}
   m_Layer: 0
   m_Name: Main Character
   m_TagString: Player
@@ -212,6 +213,18 @@ MonoBehaviour:
   enemyCount: 200
   enemyRange: {x: 100, y: 100}
   safetyRadius: 25
+--- !u!114 &114000012337790902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013174447686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c23f02b6e2360242a4f16620727fbe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: {x: 35, y: 0, z: 35}
 --- !u!114 &114000012436475440
 MonoBehaviour:
   m_ObjectHideFlags: 1
