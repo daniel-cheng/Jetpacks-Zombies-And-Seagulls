@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friction: 40
   jumpSpeed: 60
+  refuelRate: 15
 --- !u!114 &114000012436475440
 MonoBehaviour:
   m_ObjectHideFlags: 1
