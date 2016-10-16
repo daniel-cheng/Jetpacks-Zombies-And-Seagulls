@@ -28,7 +28,7 @@ GameObject:
   - 114: {fileID: 114000013494690854}
   - 114: {fileID: 114000012577820980}
   m_Layer: 0
-  m_Name: Seagull
+  m_Name: seagull
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   senseDist: 50
+  stayGrounded: 0
 --- !u!114 &114000013494690854
 MonoBehaviour:
   m_ObjectHideFlags: 1

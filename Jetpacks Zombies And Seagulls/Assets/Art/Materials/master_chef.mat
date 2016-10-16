@@ -48,7 +48,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 172a71aaa0e31374f921bca2f69efd55, type: 3}
+        m_Texture: {fileID: 2800000, guid: c4862b876515cc74f8404461fbe87ac9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -87,13 +87,13 @@ Material:
       second: 1
     - first:
         name: _Glossiness
-      second: 0.5
+      second: 0.499
     - first:
         name: _GlossyReflections
       second: 1
     - first:
         name: _Metallic
-      second: 0
+      second: 0.793
     - first:
         name: _Mode
       second: 0
