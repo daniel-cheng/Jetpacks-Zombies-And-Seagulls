@@ -141,13 +141,19 @@ public class SpawnBuildings : MonoBehaviour {
 	}
 
 	public void BuildingSpawn(int buildingNumber, Vector3 spawnCenter) {
-		int half = buildingNumber / 2;
-		for (int i = 0; i < half; ++i) {
+		int half = buildingNumber;
+		for (int i = 0; i <= half; ++i) {
             //spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
             //spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
             if(CheckSpawnPoint())
             {
-                scaleFactor = Random.Range(15, 40);
+                scaleFactor = Random.Range(0,3);
+				if (scaleFactor <= 1) {
+					scaleFactor = Random.Range(15,40);
+				}
+				else {
+					scaleFactor = Random.Range(40, 100);
+				}
                 bulkFactor = Random.Range(10, 30);
                 bulkOther = Random.Range(1, 20);
                 GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
@@ -156,21 +162,7 @@ public class SpawnBuildings : MonoBehaviour {
                 buildingList.Add(tempBuild);
             }
 		}
-
-		for (int i = half; i < buildingNumber; ++i) {
-            //spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
-            //spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
-            if (CheckSpawnPoint())
-            {
-                scaleFactor = Random.Range(15, 40);
-                bulkFactor = Random.Range(10, 30);
-                bulkOther = Random.Range(1, 20);
-                GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
-                //tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
-                tempBuild.transform.localScale = new Vector3(bulkFactor, scaleFactor, bulkOther);
-                buildingList.Add(tempBuild);
-            }
-        }
+			
 	}
     bool CheckSpawnPoint()
     {
