@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012552303410}
+  - 114: {fileID: 114000010142027252}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -124,6 +125,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &114000010142027252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012142548078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65f5c2b9c947b24eb58131061c94716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  despawnRange: 1000
+  enemyType: 1
 --- !u!114 &114000011490026244
 MonoBehaviour:
   m_ObjectHideFlags: 1

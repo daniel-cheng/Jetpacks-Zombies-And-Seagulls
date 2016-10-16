@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SpawnEnemy : MonoBehaviour {
 
-    public GameObject enemy;
+    public GameObject[] enemyPrefabs;
     public int enemyCount;
     public float thresholdPercent;  //Percent of total enemies left before spawning more
     int enemyThreshold;
@@ -33,7 +33,7 @@ public class SpawnEnemy : MonoBehaviour {
         {
 			spawnPoint.x = Random.Range(-enemyRange.x, enemyRange.y);
 			spawnPoint.z = Random.Range(-enemyRange.x, enemyRange.y);
-            GameObject tempEnemy = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
+            GameObject tempEnemy = (GameObject)Instantiate(enemyPrefabs[Random.Range (0, enemyPrefabs.Length)], spawnPoint, Quaternion.identity);
             tempEnemy.GetComponentInChildren<EnemyMovement>().Player = GameObject.FindWithTag("Player").transform;
             tempEnemy.GetComponent<EnemyManager>().spawner = this;
 
