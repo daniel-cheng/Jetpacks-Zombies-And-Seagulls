@@ -26,7 +26,7 @@ public class SpawnBuildings : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		BuildingSpawn (buildingCount);
+		
 	}
 	
 	// Update is called once per frame
