@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000012434195860
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000010650717408
 Transform:
   m_ObjectHideFlags: 1
@@ -156,10 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646036fb98c334a9bbb6dd67375de8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerSpawner: {fileID: 1000012434195860}
+  PlayerSpawner: {fileID: 0}
   currentChunk: {x: 0, y: 0}
   chunkList: []
-  buildingSpawner: {fileID: 114000012447315228}
+  buildingSpawner: {fileID: 0}
   buildingCount: 400
 --- !u!114 &114000012357045552
 MonoBehaviour:
@@ -189,6 +189,7 @@ MonoBehaviour:
   building: {fileID: 1000014003616498, guid: 5e60d4ebfa51a471b8e847711d36c225, type: 2}
   buildingCount: 600
   buildingRange: {x: 400, y: 400}
+  gridSize: 800
 --- !u!114 &114000013386724732
 MonoBehaviour:
   m_ObjectHideFlags: 1
