@@ -13,7 +13,9 @@ public class Timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		timer += Time.deltaTime;
+		if (!CharacterDeath.isDead) {
+			timer += Time.deltaTime;
+		}
 		GetComponent<Text>().text = "Survived: "+ Mathf.Floor(timer).ToString(); 
 	}
 
