@@ -12,6 +12,8 @@ public class SpawnEnemy : MonoBehaviour {
     private Vector3 spawnPoint;
 	public Vector2 enemyRange = new Vector2(100, 100);
     List<GameObject> enemyList = new List<GameObject>();
+
+    public int safetyRadius;
     
 	void Start ()
     {
@@ -31,9 +33,17 @@ public class SpawnEnemy : MonoBehaviour {
     {
         for (int i = 0; i < enemyNumber; ++i)
         {
-			spawnPoint.x = Random.Range(-enemyRange.x, enemyRange.y);
-			spawnPoint.z = Random.Range(-enemyRange.x, enemyRange.y);
-            GameObject tempEnemy = (GameObject)Instantiate(enemyPrefabs[Random.Range (0, enemyPrefabs.Length)], spawnPoint, Quaternion.identity);
+            int enemyIndex = Random.Range(0, enemyPrefabs.Length);
+
+            spawnPoint.y = transform.position.y;
+            do
+            {
+                spawnPoint.x = Random.Range(-enemyRange.x, enemyRange.y) + transform.position.x;
+                spawnPoint.z = Random.Range(-enemyRange.x, enemyRange.y) + transform.position.z;
+            }
+            while (Vector3.Distance(spawnPoint, transform.position) < safetyRadius);
+            
+            GameObject tempEnemy = (GameObject)Instantiate(enemyPrefabs[enemyIndex], spawnPoint, Quaternion.identity);
             tempEnemy.GetComponentInChildren<EnemyMovement>().Player = GameObject.FindWithTag("Player").transform;
             tempEnemy.GetComponent<EnemyManager>().spawner = this;
 
@@ -43,7 +53,6 @@ public class SpawnEnemy : MonoBehaviour {
     }
     public void KillEnemies()
     {
-		Debug.Log (enemyList);
         foreach(GameObject enemyRef in enemyList)
         {
             Destroy(enemyRef);
@@ -53,6 +62,12 @@ public class SpawnEnemy : MonoBehaviour {
 
     public void DespawnEnemy (GameObject despawn)
     {
+        Debug.Log("Despawning Enemy (Spawner)");
         enemyList.Remove(despawn);
+    }
+
+    void OnDestroy()
+    {
+        KillEnemies();
     }
 }

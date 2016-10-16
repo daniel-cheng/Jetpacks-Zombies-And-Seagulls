@@ -228,5 +228,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  despawnRange: 1000
+  despawnRange: 300
   enemyType: 0

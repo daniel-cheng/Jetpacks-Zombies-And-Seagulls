@@ -20,19 +20,36 @@ public class EnemyManager : MonoBehaviour
     {
         sound = GetComponent<AudioSource> ();
         player = MainCharacterMovement.character.transform;
+
+        InvokeRepeating("PlaySound", Random.Range (0f, 1f), 1);
     }
     
     void Update()
     {
-        if (enemyType == EnemyTypes.Seagull && !sound.isPlaying)
-        {
-            sound.PlayDelayed(0.1f);
-        }
-
         if (Vector3.Distance(transform.position, player.position) > despawnRange)
         {
+            Debug.Log("Despawning Enemy (Manager)");
             spawner.DespawnEnemy(gameObject);
             Destroy(gameObject);
+        }
+    }
+
+    void PlaySound ()
+    {
+        if (sound != null)
+        {
+            if (enemyType == EnemyTypes.Seagull && !sound.isPlaying)
+            {
+                sound.Play();
+            }
+            else if (enemyType == EnemyTypes.Zombie && !sound.isPlaying)
+            {
+                //sound.Play();
+            }
+        }
+        else
+        {
+            //Debug.Log("No audio source for " + name + " found.");
         }
     }
 }

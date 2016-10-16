@@ -42,6 +42,7 @@ GameObject:
   - 136: {fileID: 136000012839130708}
   - 23: {fileID: 23000010801165426}
   - 54: {fileID: 54000012566019914}
+  - 114: {fileID: 114000011103161798}
   - 114: {fileID: 114000010465276860}
   - 114: {fileID: 114000012436475440}
   - 114: {fileID: 114000013566441196}
@@ -273,6 +274,24 @@ MonoBehaviour:
   friction: 40
   jumpSpeed: 60
   refuelRate: 15
+--- !u!114 &114000011103161798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013174447686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd262348c3e7ac40a99c646629b7d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 1000013226583130, guid: 7b27ad46d325f8c4c94c84e4b51c779c, type: 2}
+  - {fileID: 1000014225462442, guid: 891188503f78d3b479480825729fca83, type: 2}
+  enemyCount: 200
+  thresholdPercent: 0.75
+  enemyRange: {x: 100, y: 100}
+  safetyRadius: 0
 --- !u!114 &114000012436475440
 MonoBehaviour:
   m_ObjectHideFlags: 1
