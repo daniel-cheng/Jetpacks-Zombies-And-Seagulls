@@ -16,9 +16,14 @@ public class SpawnBuildings : MonoBehaviour {
 	public List<Vector3> chunkList = new List<Vector3>();
 	private SpawnBuildings buildingSpawner;
 	public int chunkSize = 800;
+    public int safetyRadius = 50;
+    //Building size modifiers===========================
+    private float scaleFactor;
+    private float bulkFactor;
+    private float bulkOther;
 
 
-	void Awake()
+    void Awake()
 	{
 		if(buildingSpawnerRef == null)
 		{
@@ -138,33 +143,48 @@ public class SpawnBuildings : MonoBehaviour {
 	public void BuildingSpawn(int buildingNumber, Vector3 spawnCenter) {
 		int half = buildingNumber / 2;
 		for (int i = 0; i < half; ++i) {
-			spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
-			spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
-			float scaleFactor = Random.Range (15, 40);
-			float bulkFactor = Random.Range (10, 30);
-			float bulkOther = Random.Range (1, 20);
-			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
-			//tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
-			tempBuild.transform.localScale = new Vector3 (bulkFactor, scaleFactor, bulkOther);
-			buildingList.Add(tempBuild);
+            //spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
+            //spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
+            if(CheckSpawnPoint())
+            {
+                scaleFactor = Random.Range(15, 40);
+                bulkFactor = Random.Range(10, 30);
+                bulkOther = Random.Range(1, 20);
+                GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
+                //tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
+                tempBuild.transform.localScale = new Vector3(bulkFactor, scaleFactor, bulkOther);
+                buildingList.Add(tempBuild);
+            }
 		}
 
 		for (int i = half; i < buildingNumber; ++i) {
-			spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
-			spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
-			float scaleFactor = Random.Range (15, 120);
-			float bulkFactor = Random.Range (10, 30);
-			float bulkOther = Random.Range (1, 20);
-			GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
-			//tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
-			tempBuild.transform.localScale = new Vector3 (bulkFactor, scaleFactor, bulkOther);
-			buildingList.Add(tempBuild);
-		}
+            //spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
+            //spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
+            if (CheckSpawnPoint())
+            {
+                scaleFactor = Random.Range(15, 40);
+                bulkFactor = Random.Range(10, 30);
+                bulkOther = Random.Range(1, 20);
+                GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
+                //tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
+                tempBuild.transform.localScale = new Vector3(bulkFactor, scaleFactor, bulkOther);
+                buildingList.Add(tempBuild);
+            }
+        }
 	}
-
-	public void Reconstruct()
+    bool CheckSpawnPoint()
+    {
+        spawnPoint.x = Random.Range(-buildingRange.x, buildingRange.y);
+        spawnPoint.z = Random.Range(-buildingRange.x, buildingRange.y);
+        float distance = Vector3.Magnitude(spawnPoint);
+        if (distance > safetyRadius)
+        {
+            return true;
+        }
+        return false;
+    }
+    public void Reconstruct()
 	{
-		
 		foreach(GameObject buildingRef in buildingList)
 		{
 			Destroy(buildingRef);
@@ -172,5 +192,5 @@ public class SpawnBuildings : MonoBehaviour {
 		buildingList.Clear();
 		chunkList.Clear ();
 		currentChunk = Vector3.zero;
-	}
+    }
 }
