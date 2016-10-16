@@ -5,23 +5,27 @@ using System.Collections.Generic;
 public class SpawnBuildings : MonoBehaviour {
 
 	public GameObject building;
-	public int buildingCount = 100;
-    public Vector2 buildingRange = new Vector2(100, 100);
+    public GameObject shop;
+
+	public int buildingCount;
+    public Vector2 buildingRange;
     private Vector3 spawnPoint;
 	List<GameObject> buildingList = new List<GameObject>();
 	public static SpawnBuildings buildingSpawnerRef;
 	private GameObject PlayerSpawner;
 	private Transform Player;
 	private Vector3 currentChunk = new Vector3(0,0,0);
-	public List<Vector3> chunkList = new List<Vector3>();
+	public List<Vector3> chunkList;
 	private SpawnBuildings buildingSpawner;
 	public int chunkSize = 800;
     public int safetyRadius = 50;
+
     //Building size modifiers===========================
     private float scaleFactor;
     private float bulkFactor;
     private float bulkOther;
 
+    int shopID; //Used to generate upgrade shop
 
     void Awake()
 	{
@@ -34,11 +38,10 @@ public class SpawnBuildings : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
-
-	// Use this for initialization
+    
 	void Start () {
 		Player = GameObject.FindWithTag("Player").transform;
-		buildingSpawner = (SpawnBuildings)GetComponentInChildren<SpawnBuildings> ();
+		buildingSpawner = GetComponentInChildren<SpawnBuildings> ();
 		buildingSpawner.buildingCount = buildingCount;
 		SpawnGrid ();
 		currentChunk = Vector3.zero;
@@ -54,15 +57,12 @@ public class SpawnBuildings : MonoBehaviour {
 			}
 		}
 	}
-
-
-	
-	// Update is called once per frame
+    
 	void Update () {
 		Player = GameObject.FindWithTag("Player").transform;
 
 		if (Player.transform.position.z > currentChunk.z + chunkSize) {
-			currentChunk = new Vector3(currentChunk.x, 0, currentChunk.z + chunkSize);                                                     //set currentChunk to the one we just entered
+			currentChunk = new Vector3(currentChunk.x, 0, currentChunk.z + chunkSize);  //set currentChunk to the one we just entered
 			Vector3 newChunk = new Vector3(currentChunk.x, 0, currentChunk.z + chunkSize);
 			if (!chunkList.Contains (newChunk)) {
 				buildingSpawner.BuildingSpawn (buildingSpawner.buildingCount, newChunk);
@@ -81,7 +81,7 @@ public class SpawnBuildings : MonoBehaviour {
 		}
 
 		if (Player.transform.position.z < currentChunk.z - chunkSize) {
-			currentChunk = new Vector3(currentChunk.x, 0, currentChunk.z - chunkSize);                                                     //set currentChunk to the one we just entered
+			currentChunk = new Vector3(currentChunk.x, 0, currentChunk.z - chunkSize);  //set currentChunk to the one we just entered
 			Vector3 newChunk = new Vector3(currentChunk.x, 0, currentChunk.z - chunkSize);
 
 			if (!chunkList.Contains (newChunk)) {
@@ -102,7 +102,7 @@ public class SpawnBuildings : MonoBehaviour {
 
 		if (Player.transform.position.x > currentChunk.x + chunkSize) {
 			Debug.Log (Player.transform.position.x);
-			currentChunk = new Vector3(currentChunk.x + chunkSize, 0, currentChunk.z);                                                     //set currentChunk to the one we just entered
+			currentChunk = new Vector3(currentChunk.x + chunkSize, 0, currentChunk.z);  //set currentChunk to the one we just entered
 			Vector3 newChunk = new Vector3(currentChunk.x + chunkSize, 0, currentChunk.z);
 			if (!chunkList.Contains (newChunk)) {
 				buildingSpawner.BuildingSpawn (buildingSpawner.buildingCount, newChunk);
@@ -121,8 +121,8 @@ public class SpawnBuildings : MonoBehaviour {
 		}
 
 		if (Player.transform.position.x < currentChunk.x - chunkSize) {
-			currentChunk = new Vector3(currentChunk.x - chunkSize, 0, currentChunk.z);                                                     //set currentChunk to the one we just entered
-			Vector3 newChunk = new Vector3(currentChunk.x - chunkSize, 0, currentChunk.z);                                                        //newChunk to try to generate
+			currentChunk = new Vector3(currentChunk.x - chunkSize, 0, currentChunk.z);  //set currentChunk to the one we just entered
+			Vector3 newChunk = new Vector3(currentChunk.x - chunkSize, 0, currentChunk.z);  //newChunk to try to generate
 			if (!chunkList.Contains (newChunk)) {
 				buildingSpawner.BuildingSpawn (buildingSpawner.buildingCount, newChunk);
 				chunkList.Add (newChunk);
@@ -141,8 +141,9 @@ public class SpawnBuildings : MonoBehaviour {
 	}
 
 	public void BuildingSpawn(int buildingNumber, Vector3 spawnCenter) {
-		int half = buildingNumber;
-		for (int i = 0; i <= half; ++i) {
+        shopID = Random.Range(0, buildingNumber);
+        
+		for (int i = 0; i <= buildingNumber; ++i) {
             //spawnPoint.x = Random.Range (-buildingRange.x, buildingRange.y);
             //spawnPoint.z = Random.Range (-buildingRange.x, buildingRange.y);
             if(CheckSpawnPoint())
@@ -156,9 +157,18 @@ public class SpawnBuildings : MonoBehaviour {
 				}
                 bulkFactor = Random.Range(10, 30);
                 bulkOther = Random.Range(1, 20);
-                GameObject tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
+
+                GameObject tempBuild;
+                if (i == shopID)
+                {
+                    tempBuild = (GameObject)Instantiate(shop, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
+                }
+                else
+                {
+                    tempBuild = (GameObject)Instantiate(building, spawnPoint + spawnCenter, Quaternion.identity, buildingSpawner.transform);
+                    tempBuild.transform.localScale = new Vector3(bulkFactor, scaleFactor, bulkOther);
+                }
                 //tempBuild.transform.position = new Vector3 (spawnPoint.x, scaleFactor, spawnPoint.z);
-                tempBuild.transform.localScale = new Vector3(bulkFactor, scaleFactor, bulkOther);
                 buildingList.Add(tempBuild);
             }
 		}

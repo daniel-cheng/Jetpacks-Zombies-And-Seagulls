@@ -1007,6 +1007,7 @@ MonoBehaviour:
   - {fileID: 1000014225462442, guid: 891188503f78d3b479480825729fca83, type: 2}
   enemyCount: 200
   enemyRange: {x: 100, y: 100}
+  soundsNum: 8
   safetyRadius: 25
 --- !u!114 &114000012337790902
 MonoBehaviour:

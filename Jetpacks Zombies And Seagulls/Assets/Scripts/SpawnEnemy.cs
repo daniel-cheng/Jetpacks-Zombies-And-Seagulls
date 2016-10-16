@@ -25,6 +25,8 @@ public class SpawnEnemy : MonoBehaviour {
     }
 	public Vector2 enemyRange = new Vector2(100, 100);
     List<GameObject> enemyList = new List<GameObject>();
+
+    public int soundsNum;
     List<int> soundPlayerIndexes = new List<int>();
 
     public int safetyRadius;
@@ -40,7 +42,7 @@ public class SpawnEnemy : MonoBehaviour {
 
     public void Spawn(int enemyNumber)
     {
-        for (int a = 0; a < 10; a++)
+        for (int a = 0; a < soundsNum; a++)
         {
             soundPlayerIndexes.Add(Random.Range(0, enemyNumber));
         }

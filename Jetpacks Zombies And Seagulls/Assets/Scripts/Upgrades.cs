@@ -6,12 +6,14 @@ using System.Collections.Generic;
 public class Upgrades : MonoBehaviour {
 
 	public static Upgrades upgrade;
-	private GameObject Player; 
-	float moveOriginal;
+	private GameObject Player;
+    public static int totalUpgrades = 0;
+
+    float moveOriginal;
+    Vector3 maxSpeedOriginal;
 	float jumpOriginal;
 	float fuelOriginal;
 	float refuelOriginal;
-	public static int totalUpgrades = 0;
 
 	public static List<Action> functions = new List<Action>();
 
@@ -29,7 +31,8 @@ public class Upgrades : MonoBehaviour {
 		Player = MainCharacterMovement.character;
 
 		moveOriginal = Player.GetComponent<MainCharacterMovement> ().friction;
-		jumpOriginal = Player.GetComponent<MainCharacterMovement> ().jumpSpeed;
+        maxSpeedOriginal = Player.GetComponent<MaxSpeed>().maxVelocity;
+        jumpOriginal = Player.GetComponent<MainCharacterMovement> ().jumpSpeed;
 		fuelOriginal = Player.GetComponent<MainCharacterMovement>().jetPackFuel;
 		refuelOriginal = Player.GetComponent<MainCharacterMovement> ().refuelRate;
 
@@ -41,8 +44,10 @@ public class Upgrades : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Player == null)
-			Player = MainCharacterMovement.character;
+        if (Player == null)
+        {
+            Player = MainCharacterMovement.character;
+        }
 	}
 
 	public void AddUpgrade() {
@@ -76,6 +81,7 @@ public class Upgrades : MonoBehaviour {
 
 	public void resetStats() {
 		Player.GetComponent<MainCharacterMovement>().refuelRate = refuelOriginal;
+        Player.GetComponent<MaxSpeed>().maxVelocity = maxSpeedOriginal;
         Player.GetComponent<MainCharacterMovement>().jetPackFuel = fuelOriginal;
 		Player.GetComponent<MainCharacterMovement>().friction = moveOriginal;
 		Player.GetComponent<MainCharacterMovement>().jumpSpeed = jumpOriginal;
