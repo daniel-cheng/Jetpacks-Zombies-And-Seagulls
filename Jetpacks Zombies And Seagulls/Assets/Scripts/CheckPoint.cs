@@ -8,7 +8,7 @@ public class Checkpoint : MonoBehaviour
     
 	void Start ()
     {
-        waypoint = transform.FindChild("Wapoint Canvas").gameObject;
+        waypoint = transform.FindChild("Waypoint Canvas").gameObject;
 	}
 
     void Update ()

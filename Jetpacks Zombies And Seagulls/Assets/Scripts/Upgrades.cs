@@ -50,7 +50,7 @@ public class Upgrades : MonoBehaviour {
         functions [rand]();
 
 		totalUpgrades++;
-        Debug.Log("Total Upgrades= " + totalUpgrades + ", New Upgrade= " + functions[rand].ToString());
+        //Debug.Log("Total Upgrades= " + totalUpgrades + ", New Upgrade= " + functions[rand].Method.Name.ToString());
 	}
 
 	void addMoveSpeed() {

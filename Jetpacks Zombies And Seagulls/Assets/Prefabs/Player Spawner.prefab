@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010650717408}
   - 114: {fileID: 114000013386724732}
+  - 114: {fileID: 114000010831678692}
   m_Layer: 0
   m_Name: Player Spawner
   m_TagString: Untagged
@@ -100,6 +101,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000010650717408}
   m_RootOrder: 0
+--- !u!114 &114000010831678692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012434195860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8bb84f418e442f09781e887313be99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012357045552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,8 +127,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1000014225462442, guid: 891188503f78d3b479480825729fca83, type: 2}
   enemyCount: 200
-  thresholdPercent: 0.75
   enemyRange: {x: 100, y: 100}
+  safetyRadius: 0
 --- !u!114 &114000012447315228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +145,7 @@ MonoBehaviour:
   buildingRange: {x: 400, y: 400}
   chunkList: []
   chunkSize: 800
+  safetyRadius: 50
 --- !u!114 &114000013386724732
 MonoBehaviour:
   m_ObjectHideFlags: 1

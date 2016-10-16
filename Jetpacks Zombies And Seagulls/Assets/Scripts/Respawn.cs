@@ -16,10 +16,8 @@ public class Respawn : MonoBehaviour
 
 	void RespawnBuildings()
 	{
-		foreach (SpawnBuildings spawn in FindObjectsOfType(typeof(SpawnBuildings))) {
-			spawn.Reconstruct ();
-			spawn.SpawnGrid();
-		}
+        SpawnBuildings.buildingSpawnerRef.Reconstruct ();
+        SpawnBuildings.buildingSpawnerRef.SpawnGrid();
 	}
     public void Restart()
 	{
