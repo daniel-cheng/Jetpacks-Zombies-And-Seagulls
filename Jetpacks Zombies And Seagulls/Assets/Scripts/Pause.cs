@@ -37,8 +37,11 @@ public class Pause : MonoBehaviour
 
         pauseUI.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (!CharacterDeath.isDead)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     void OnDestroy ()
