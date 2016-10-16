@@ -37,6 +37,7 @@ GameObject:
   - 4: {fileID: 4000010650717408}
   - 114: {fileID: 114000013386724732}
   - 114: {fileID: 114000010831678692}
+  - 114: {fileID: 114000012759451288}
   m_Layer: 0
   m_Name: Player Spawner
   m_TagString: Untagged
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012434195860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -126,7 +127,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 0}
   - {fileID: 1000014225462442, guid: 891188503f78d3b479480825729fca83, type: 2}
-  enemyCount: 200
+  enemyCount: 1000
   enemyRange: {x: 100, y: 100}
   safetyRadius: 0
 --- !u!114 &114000012447315228
@@ -146,6 +147,17 @@ MonoBehaviour:
   chunkList: []
   chunkSize: 800
   safetyRadius: 50
+--- !u!114 &114000012759451288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012434195860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0b3cd6f4f941242a02b3f99a144dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013386724732
 MonoBehaviour:
   m_ObjectHideFlags: 1
