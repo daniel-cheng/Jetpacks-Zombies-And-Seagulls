@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MainCharacterMovement : MonoBehaviour {
@@ -6,7 +7,7 @@ public class MainCharacterMovement : MonoBehaviour {
     Rigidbody myRigidbody;
 	public float friction = 10;
 	public float jumpSpeed = 20;
-    private float jetPackFuel = 100;
+    public float jetPackFuel = 100;
     public float refuelRate = 15;
 
     void Awake()
@@ -33,12 +34,13 @@ public class MainCharacterMovement : MonoBehaviour {
             {
                 myRigidbody.AddForce(new Vector3(0, jumpSpeed, 0));
                 jetPackFuel = jetPackFuel - 100 * Time.fixedDeltaTime;
+                Debug.Log(jetPackFuel);
             }
 		}
         if(jetPackFuel < 100 )
         {
             jetPackFuel = jetPackFuel + refuelRate * Time.fixedDeltaTime;
         }
-			
-	}
+        GetComponent<Text>().text = "Fuel: " + Mathf.Floor(jetPackFuel).ToString();
+    }
 }
