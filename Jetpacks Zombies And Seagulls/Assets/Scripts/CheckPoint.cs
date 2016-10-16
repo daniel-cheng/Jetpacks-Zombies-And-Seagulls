@@ -3,28 +3,30 @@ using System.Collections;
 
 public class CheckPoint : MonoBehaviour
 {
-
-    public GameObject checkPoint;
-
+    GameObject waypoint;
+    bool activeShop = true;
     
-    // Use this for initialization
 	void Start ()
     {
-	    
+        waypoint = transform.FindChild("Wapoint Canvas").gameObject;
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    void Update ()
     {
-	    
-	}
+        if (activeShop)
+        {
+            waypoint.transform.LookAt(MainCharacterMovement.character.transform);
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player") && activeShop)
         {
+            //Call an upgrade
 
-            Destroy(checkPoint); 
+            activeShop = false;
+            Destroy(waypoint); 
         }
     }
 }

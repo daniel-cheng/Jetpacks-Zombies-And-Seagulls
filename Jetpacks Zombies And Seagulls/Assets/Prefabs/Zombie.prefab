@@ -187,7 +187,7 @@ MonoBehaviour:
   spawner: {fileID: 0}
   soundPlayer: 0
   despawnRange: 100
-  soundDelay: 2
+  soundDelay: 5
   enemyType: 1
 --- !u!114 &114000011985372758
 MonoBehaviour:
