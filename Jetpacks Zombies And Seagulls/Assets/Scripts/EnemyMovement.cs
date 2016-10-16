@@ -8,6 +8,8 @@ public class EnemyMovement : MonoBehaviour
     public float moveSpeed;
     public float senseDist;
 
+    public bool stayGrounded;
+
     void Awake()
     {
         myRigidbody = GetComponent<Rigidbody>();
@@ -21,7 +23,17 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(Player);
+        if (!stayGrounded)
+        {
+            transform.LookAt(Player);
+        }
+        else if (stayGrounded)
+        {
+            Transform tempLookAt = new GameObject().transform;
+            tempLookAt.position = new Vector3(Player.position.x, transform.position.y, Player.position.z);
+
+            transform.LookAt(tempLookAt);
+        }
     }
 
     void FixedUpdate()

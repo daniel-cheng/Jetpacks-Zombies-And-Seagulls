@@ -41,7 +41,14 @@ public class EnemyManager : MonoBehaviour
         if (Vector3.Distance(transform.position, player.position) > despawnRange)
         {
             //Debug.Log("Repositioning Enemy (Manager)");
-            spawner.RepositionEnemy(gameObject);
+            if (enemyType == EnemyTypes.Zombie)
+            {
+                spawner.RepositionEnemy(gameObject, true);
+            }
+            else if (enemyType == EnemyTypes.Seagull)
+            {
+                spawner.RepositionEnemy(gameObject, false);
+            }
         }
     }
 

@@ -70,10 +70,15 @@ public class SpawnEnemy : MonoBehaviour {
         soundPlayerIndexes.Clear();
     }
 
-    public void RepositionEnemy(GameObject reposEnemy)
+    public void RepositionEnemy(GameObject reposEnemy, bool onGround)
     {
         //Debug.Log("Repositioning Enemy (Spawner)");
-        reposEnemy.transform.position = GetSpawnPoint();
+        Vector3 tempSpawn = GetSpawnPoint();
+        if (onGround)
+        {
+            tempSpawn.y = reposEnemy.transform.position.y;
+        }
+        reposEnemy.transform.position = tempSpawn;
     }
 
     void OnDestroy()
