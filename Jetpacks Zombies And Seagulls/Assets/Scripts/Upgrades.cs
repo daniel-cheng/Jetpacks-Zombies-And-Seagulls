@@ -30,7 +30,7 @@ public class Upgrades : MonoBehaviour {
 
 		moveOriginal = Player.GetComponent<MainCharacterMovement> ().friction;
 		jumpOriginal = Player.GetComponent<MainCharacterMovement> ().jumpSpeed;
-		fuelOriginal = MainCharacterMovement.jetPackFuel;
+		fuelOriginal = Player.GetComponent<MainCharacterMovement>().jetPackFuel;
 		refuelOriginal = Player.GetComponent<MainCharacterMovement> ().refuelRate;
 
 		functions.Add (addJetFuel);
@@ -45,10 +45,12 @@ public class Upgrades : MonoBehaviour {
 			Player = MainCharacterMovement.character;
 	}
 
-	public static void addUpgrade() {
-		functions [UnityEngine.Random.Range (0, functions.Count)]();
+	public void AddUpgrade() {
+        int rand = UnityEngine.Random.Range(0, functions.Count);
+        functions [rand]();
+
 		totalUpgrades++;
-		Debug.Log (totalUpgrades);
+        Debug.Log("Total Upgrades= " + totalUpgrades + ", New Upgrade= " + functions[rand].ToString());
 	}
 
 	void addMoveSpeed() {
@@ -57,7 +59,7 @@ public class Upgrades : MonoBehaviour {
 	}
 
 	void addJetFuel() {
-		MainCharacterMovement.jetPackFuel += 10;
+        Player.GetComponent<MainCharacterMovement>().jetPackFuel += 10;
 	
 	}
 
@@ -73,7 +75,7 @@ public class Upgrades : MonoBehaviour {
 
 	public void resetStats() {
 		Player.GetComponent<MainCharacterMovement>().refuelRate = refuelOriginal;
-		MainCharacterMovement.jetPackFuel = fuelOriginal;
+        Player.GetComponent<MainCharacterMovement>().jetPackFuel = fuelOriginal;
 		Player.GetComponent<MainCharacterMovement>().friction = moveOriginal;
 		Player.GetComponent<MainCharacterMovement>().jumpSpeed = jumpOriginal;
 		totalUpgrades = 0;

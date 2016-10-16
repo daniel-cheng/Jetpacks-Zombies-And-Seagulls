@@ -28,15 +28,12 @@ public class SpawnEnemy : MonoBehaviour {
     List<int> soundPlayerIndexes = new List<int>();
 
     public int safetyRadius;
-    
-    void Awake ()
-    {
-        enemyParent = new GameObject();
-        enemyParent.name = "Enemy Parent Object";
-    }
 
 	void Start ()
     {
+        enemyParent = new GameObject();
+        enemyParent.name = "Enemy Parent Object";
+
         Spawn(enemyCount);
         //enemyThreshold = (int) (enemyCount * thresholdPercent);
 	}
@@ -51,10 +48,13 @@ public class SpawnEnemy : MonoBehaviour {
         for (int i = 0; i < enemyNumber; ++i)
         {
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
-
-            GetSpawnPoint();
             
-            GameObject tempEnemy = (GameObject)Instantiate(enemyPrefabs[enemyIndex], spawnPoint, Quaternion.identity, enemyParent.transform);
+            if (enemyParent == null)
+            {
+                Debug.Log("No enemy parent found for enemy #" + i.ToString());
+            }
+
+            GameObject tempEnemy = (GameObject)Instantiate(enemyPrefabs[enemyIndex], GetSpawnPoint(), Quaternion.identity,  enemyParent.transform);
             //tempEnemy.GetComponentInChildren<EnemyMovement>().Player = GameObject.FindWithTag("Player").transform;
             tempEnemy.GetComponent<EnemyManager>().spawner = this;
 
@@ -69,10 +69,7 @@ public class SpawnEnemy : MonoBehaviour {
     }
     public void KillEnemies()
     {
-        foreach(GameObject enemyRef in enemyList)
-        {
-            Destroy(enemyRef);
-        }
+        Destroy(enemyParent);
         enemyList.Clear();
         soundPlayerIndexes.Clear();
     }

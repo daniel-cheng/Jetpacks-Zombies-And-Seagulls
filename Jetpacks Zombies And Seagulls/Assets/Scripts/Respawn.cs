@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Respawn : MonoBehaviour
 {
-
+    
 	public List<SpawnEnemy> spawnList = new List<SpawnEnemy>();
 	
 	void RespawnPlayer ()
@@ -13,13 +13,6 @@ public class Respawn : MonoBehaviour
 		CameraShake.shake_intensity = 0f;
         SpawnCharacter.spawner.SpawnPlayer();
 	}
-    void RespawnEnemies()
-    {
-		foreach (SpawnEnemy spawner in FindObjectsOfType(typeof(SpawnEnemy))) {
-			spawner.KillEnemies ();
-			spawner.Spawn(spawner.enemyCount);
-		}
-    }
 
 	void RespawnBuildings()
 	{
@@ -32,7 +25,6 @@ public class Respawn : MonoBehaviour
 	{
         RespawnPlayer();
 		RespawnBuildings ();
-        RespawnEnemies();
 		Timer.ResetTime ();
         MainCharacterMovement.character.GetComponent<MainCharacterMovement>().jetPackFuel = 100;
     }

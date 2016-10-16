@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CheckPoint : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     GameObject waypoint;
     bool activeShop = true;
@@ -23,7 +23,7 @@ public class CheckPoint : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player") && activeShop)
         {
-            //Call an upgrade
+            Upgrades.upgrade.AddUpgrade();
 
             activeShop = false;
             Destroy(waypoint); 
