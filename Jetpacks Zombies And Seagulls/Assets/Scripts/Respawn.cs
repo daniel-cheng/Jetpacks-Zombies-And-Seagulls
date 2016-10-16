@@ -33,5 +33,6 @@ public class Respawn : MonoBehaviour
 		RespawnBuildings ();
         RespawnEnemies();
 		Timer.ResetTime ();
+        MainCharacterMovement.jetPackFuel = 100;
     }
 }
