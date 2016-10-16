@@ -30,11 +30,14 @@ public class MainCharacterMovement : MonoBehaviour {
 
 		if (Input.GetButton ("Jump") && !CharacterDeath.isDead)
         {
-            if(jetPackFuel > 0)
-            {
-                myRigidbody.AddForce(new Vector3(0, jumpSpeed, 0));
-                jetPackFuel = jetPackFuel - 100 * Time.fixedDeltaTime;
-            }
+			if (jetPackFuel > 0) {
+				myRigidbody.AddForce (new Vector3 (0, jumpSpeed, 0));
+				jetPackFuel = jetPackFuel - 100 * Time.fixedDeltaTime;
+				CameraShake.shake_intensity = 0.03f;
+				CameraShake.Shake ();
+			} else {
+				CameraShake.shake_intensity = 0f;
+			}
 		}
         if(jetPackFuel < 100 )
         {

@@ -54,7 +54,6 @@ public class CameraShake : MonoBehaviour
 			originRotation = _transform.localRotation;
 		}
 		shaking = true;
-		shake_intensity = .5f;
 		shake_decay = 0.002f;
 	}
 		
