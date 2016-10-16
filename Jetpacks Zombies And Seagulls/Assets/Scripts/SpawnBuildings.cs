@@ -59,7 +59,6 @@ public class SpawnBuildings : MonoBehaviour {
 		if (Player.transform.position.z > currentChunk.z + chunkSize) {
 			currentChunk = new Vector3(currentChunk.x, 0, currentChunk.z + chunkSize);                                                     //set currentChunk to the one we just entered
 			Vector3 newChunk = new Vector3(currentChunk.x, 0, currentChunk.z + chunkSize);
-			Debug.Log(!chunkList.Contains (newChunk));//newChunk to try to generate
 			if (!chunkList.Contains (newChunk)) {
 				buildingSpawner.BuildingSpawn (buildingSpawner.buildingCount, newChunk);
 				chunkList.Add (newChunk);
@@ -100,19 +99,16 @@ public class SpawnBuildings : MonoBehaviour {
 			Debug.Log (Player.transform.position.x);
 			currentChunk = new Vector3(currentChunk.x + chunkSize, 0, currentChunk.z);                                                     //set currentChunk to the one we just entered
 			Vector3 newChunk = new Vector3(currentChunk.x + chunkSize, 0, currentChunk.z);
-			Debug.Log (!chunkList.Contains (newChunk)); //newChunk to try to generate
 			if (!chunkList.Contains (newChunk)) {
 				buildingSpawner.BuildingSpawn (buildingSpawner.buildingCount, newChunk);
 				chunkList.Add (newChunk);
 			}
 			newChunk = new Vector3(currentChunk.x + chunkSize, 0, currentChunk.z + chunkSize);
-			Debug.Log (!chunkList.Contains (newChunk));
 			if (!chunkList.Contains (newChunk)) {
 				buildingSpawner.BuildingSpawn (buildingSpawner.buildingCount, newChunk);
 				chunkList.Add (newChunk);
 			} //see if newChunk is in chunkList, if not, then generate
 			newChunk = new Vector3(currentChunk.x + chunkSize, 0, currentChunk.z - chunkSize);
-			Debug.Log (!chunkList.Contains (newChunk));
 			if (!chunkList.Contains (newChunk)) {
 				buildingSpawner.BuildingSpawn (buildingSpawner.buildingCount, newChunk);
 				chunkList.Add (newChunk);
