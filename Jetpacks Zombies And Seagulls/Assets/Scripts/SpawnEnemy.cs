@@ -5,27 +5,27 @@ using System.Collections.Generic;
 public class SpawnEnemy : MonoBehaviour {
 
     public GameObject enemy;
-    public int enemyCount = 1;
+    public int enemyCount;
+    public float thresholdPercent;  //Percent of total enemies left before spawning more
+    int enemyThreshold;
+
     private Vector3 spawnPoint;
 	public Vector2 enemyRange = new Vector2(100, 100);
     List<GameObject> enemyList = new List<GameObject>();
-
-	// Use this for initialization
+    
 	void Start ()
     {
-        Spawn(enemyCount);       
+        Spawn(enemyCount);
+        enemyThreshold = (int) (enemyCount * thresholdPercent);
 	}
 
-    void Awake()
+    void Update ()
     {
-        
+        if (enemyList.Count < enemyThreshold)
+        {
+            Spawn(enemyCount - enemyList.Count);
+        }
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	
-	}
 
     public void Spawn(int enemyNumber)
     {
@@ -35,6 +35,8 @@ public class SpawnEnemy : MonoBehaviour {
 			spawnPoint.z = Random.Range(-enemyRange.x, enemyRange.y);
             GameObject tempEnemy = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
             tempEnemy.GetComponentInChildren<EnemyMovement>().Player = GameObject.FindWithTag("Player").transform;
+            tempEnemy.GetComponent<EnemyManager>().spawner = this;
+
             enemyList.Add(tempEnemy);
             //Debug.Log(tempEnemy.GetComponent<EnemyMovement>().Player.name);
         }
@@ -47,5 +49,10 @@ public class SpawnEnemy : MonoBehaviour {
             Destroy(enemyRef);
         }
         enemyList.Clear();
+    }
+
+    public void DespawnEnemy (GameObject despawn)
+    {
+        enemyList.Remove(despawn);
     }
 }

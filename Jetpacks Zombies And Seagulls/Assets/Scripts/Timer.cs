@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour {
 		if (!CharacterDeath.isDead) {
 			timer += Time.deltaTime;
 		}
-		GetComponent<Text>().text = "Survived: "+ Mathf.Floor(timer).ToString(); 
+		GetComponent<Text>().text = "Survived: "+ Mathf.Floor(timer).ToString() +" seconds"; 
 	}
 
 	public static void ResetTime() {

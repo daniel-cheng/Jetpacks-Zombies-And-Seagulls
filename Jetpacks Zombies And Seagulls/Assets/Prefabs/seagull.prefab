@@ -121,14 +121,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243000011293649772, guid: c57ae10acf162fc429714d480c3dfc36,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: a13d6ce584b28074e8fc9b1b08bdb375, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -156,7 +156,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -227,3 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65f5c2b9c947b24eb58131061c94716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  despawnRange: 1000
+  enemyType: 0
