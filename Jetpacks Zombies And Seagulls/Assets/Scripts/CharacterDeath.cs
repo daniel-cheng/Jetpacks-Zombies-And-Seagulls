@@ -23,7 +23,7 @@ public class CharacterDeath : MonoBehaviour
     public void Death()
     {
         isDead = true;
-
+		CameraShake.Shake();
         if (deathUI == null)
         {
             deathUI = (GameObject)Instantiate(Resources.Load("Death Canvas"));
