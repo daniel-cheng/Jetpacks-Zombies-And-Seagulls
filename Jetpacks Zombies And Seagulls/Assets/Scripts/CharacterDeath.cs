@@ -23,7 +23,7 @@ public class CharacterDeath : MonoBehaviour
     public void Death()
     {
         isDead = true;
-		CameraShake.shake_intensity = 0.5f;
+		CameraShake.shake_intensity = 2.0f;
 		CameraShake.Shake();
 		Upgrades.upgrade.resetStats ();
         if (deathUI == null)

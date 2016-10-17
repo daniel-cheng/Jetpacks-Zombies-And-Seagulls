@@ -9,7 +9,7 @@ public class CameraShake : MonoBehaviour
 
 	public static float shake_decay;
 
-	public static float shake_intensity;
+	public static float shake_intensity = 0;
 
 	private static bool shaking;
 

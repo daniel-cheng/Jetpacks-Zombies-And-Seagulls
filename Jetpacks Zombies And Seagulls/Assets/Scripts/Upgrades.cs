@@ -104,7 +104,8 @@ public class Upgrades : MonoBehaviour
 
     void addShake()
     {
-        CameraShake.shake_intensity += 0.1f;
+        CameraShake.shake_intensity += 0.5f;
+		CameraShake.Shake ();
     }
 
     void flipCamera()
