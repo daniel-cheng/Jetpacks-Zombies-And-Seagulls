@@ -127,7 +127,6 @@ public class Upgrades : MonoBehaviour
         Player.GetComponent<MainCharacterMovement>().jumpSpeed = jumpOriginal;
         Player.GetComponentInChildren<BloomOptimized>().intensity = bloomOriginal;
         totalUpgrades = 0;
-        CameraShake.shake_intensity = 0;
     }
 
 }
