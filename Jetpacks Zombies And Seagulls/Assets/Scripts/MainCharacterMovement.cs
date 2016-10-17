@@ -64,7 +64,7 @@ public class MainCharacterMovement : MonoBehaviour {
         }
     }
 
-    void OnDestroy ()
+    void OnDisable ()
     {
         character = null;
     }
