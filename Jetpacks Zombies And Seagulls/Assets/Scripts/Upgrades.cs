@@ -72,9 +72,10 @@ public class Upgrades : MonoBehaviour
     {
         int rand = UnityEngine.Random.Range(0, functions.Count);
         functions[rand]();
-
         totalUpgrades++;
-        Debug.Log("Total Upgrades= " + totalUpgrades + ", New Upgrade= " + functions[rand].Method.Name.ToString());
+
+        UpgradeDisplay.upgradeDisp.UpgradeMessage(totalUpgrades, functions[rand].Method.Name.ToString());
+        //Debug.Log("Total Upgrades= " + totalUpgrades + ", New Upgrade= " + functions[rand].Method.Name.ToString());
     }
 
     void addMoveSpeed()
