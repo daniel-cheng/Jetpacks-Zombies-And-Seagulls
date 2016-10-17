@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c23f02b6e2360242a4f16620727fbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: {x: 25, y: 0, z: 25}
+  maxVelocity: {x: 20, y: 0, z: 20}
 --- !u!114 &114000012577820980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2066,7 +2066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5f3ee59ec064947ba84c38751c0278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3.5
   senseDist: 50
   stayGrounded: 0
 --- !u!114 &114000013494690854

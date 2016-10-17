@@ -9,6 +9,13 @@ public class SpawnEnemy : MonoBehaviour {
     private GameObject enemyParent;
     //public float thresholdPercent;  //Percent of total enemies left before spawning more
     //int enemyThreshold;
+    public Vector2 enemyRange = new Vector2(100, 100);
+    List<GameObject> enemyList = new List<GameObject>();
+
+    public int soundsNum;
+    List<int> soundPlayerIndexes = new List<int>();
+
+    public int safetyRadius;
 
     private Vector3 spawnPoint;
     Vector3 GetSpawnPoint ()
@@ -23,14 +30,7 @@ public class SpawnEnemy : MonoBehaviour {
 
         return spawnPoint;
     }
-	public Vector2 enemyRange = new Vector2(100, 100);
-    List<GameObject> enemyList = new List<GameObject>();
-
-    public int soundsNum;
-    List<int> soundPlayerIndexes = new List<int>();
-
-    public int safetyRadius;
-
+	
 	void Start ()
     {
         enemyParent = new GameObject();

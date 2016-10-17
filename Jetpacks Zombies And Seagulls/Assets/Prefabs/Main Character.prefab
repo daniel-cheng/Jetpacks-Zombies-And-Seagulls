@@ -1012,10 +1012,10 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 1000013226583130, guid: 7b27ad46d325f8c4c94c84e4b51c779c, type: 2}
   - {fileID: 1000014225462442, guid: 891188503f78d3b479480825729fca83, type: 2}
-  enemyCount: 200
+  enemyCount: 150
   enemyRange: {x: 100, y: 100}
   soundsNum: 8
-  safetyRadius: 25
+  safetyRadius: 35
 --- !u!114 &114000012337790902
 MonoBehaviour:
   m_ObjectHideFlags: 1
