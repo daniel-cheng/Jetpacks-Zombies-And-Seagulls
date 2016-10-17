@@ -32,6 +32,10 @@ public class ScoreManager : MonoBehaviour
     void OnDestroy()
     {
         scores.Sort();
+        foreach (int f in scores)
+        {
+            Debug.Log(f);
+        }
         for (int a = 1; a <= 10; a++)
         {
             PlayerPrefs.SetInt("Score " + a.ToString(), scores[scores.Count - a]);

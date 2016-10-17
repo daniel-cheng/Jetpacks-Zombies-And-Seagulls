@@ -18,8 +18,6 @@ public class Timer : MonoBehaviour
 
     public static void ResetTime()
     {
-        ScoreManager.scoreKeeper.AddScore((int)timer);
-
         timer = 0;
     }
 }

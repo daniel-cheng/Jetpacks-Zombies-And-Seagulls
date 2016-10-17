@@ -15,6 +15,7 @@ public class HighscoreGetter : MonoBehaviour
     {
         for (int a = 1; a <= 10; a++)
         {
+            //Debug.Log("Loading score #" + a.ToString() + " = " + PlayerPrefs.GetInt("Score " + a.ToString()).ToString());
             GameObject scoreText = (GameObject)Instantiate(Resources.Load("Text"), transform, false);
             scoreText.GetComponent<Text>().text = a.ToString() + ") " + PlayerPrefs.GetInt("Score " + a.ToString()).ToString() + " seconds";
             highscores[a - 1] = scoreText;
