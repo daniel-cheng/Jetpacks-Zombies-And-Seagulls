@@ -81,7 +81,7 @@ public class Upgrades : MonoBehaviour {
 	}
 
 	void addShake() {
-		CameraShake.shake_intensity += 0.01f;
+		CameraShake.shake_intensity += 0.1f;
 	}
 
 	public void resetStats() {
