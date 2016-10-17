@@ -11,7 +11,7 @@ public class CameraShake : MonoBehaviour
 
 	public static float shake_intensity = 0;
 
-	private static bool shaking;
+	public static bool shaking;
 
 	private static Transform _transform;
 
@@ -23,8 +23,10 @@ public class CameraShake : MonoBehaviour
 
 	void Update (){
 
-		if(!shaking)
-			return;
+        if (!shaking)
+        {
+            return;
+        }
 
 		if (shake_intensity > 0f) {
 			_transform.localPosition = originPosition + Random.insideUnitSphere * shake_intensity;

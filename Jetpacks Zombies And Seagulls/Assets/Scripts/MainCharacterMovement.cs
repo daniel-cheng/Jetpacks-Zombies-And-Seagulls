@@ -16,7 +16,15 @@ public class MainCharacterMovement : MonoBehaviour {
     {
         myRigidbody = GetComponent<Rigidbody>();
 
-        character = gameObject;
+        if (character == null)
+        {
+            character = gameObject;
+        }
+        else if (character != gameObject)
+        {
+            Debug.Log("YOU HAD TWO CHARACTERS!!");
+            Destroy(gameObject);
+        }
     }
 	
 	void FixedUpdate () {
@@ -54,5 +62,10 @@ public class MainCharacterMovement : MonoBehaviour {
         {
             jetPackFuel = jetPackFuel + refuelRate * Time.fixedDeltaTime;
         }
+    }
+
+    void OnDisable ()
+    {
+        character = null;
     }
 }
