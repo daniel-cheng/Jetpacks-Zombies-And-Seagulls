@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityStandardAssets.ImageEffects;
 
 public class Upgrades : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Upgrades : MonoBehaviour
     float jumpOriginal;
     float fuelOriginal;
     float refuelOriginal;
+    float bloomOriginal;
 
     Transform playerCam;
 
@@ -47,6 +49,7 @@ public class Upgrades : MonoBehaviour
         jumpOriginal = Player.GetComponent<MainCharacterMovement>().jumpSpeed;
         fuelOriginal = Player.GetComponent<MainCharacterMovement>().jetPackFuel;
         refuelOriginal = Player.GetComponent<MainCharacterMovement>().refuelRate;
+        bloomOriginal = Player.GetComponentInChildren<BloomOptimized>().intensity;
 
         functions.Add(addJetFuel);
         functions.Add(addJumpSpeed);
@@ -54,6 +57,7 @@ public class Upgrades : MonoBehaviour
         functions.Add(addMoveSpeed);
         functions.Add(addShake);
         functions.Add(flipCamera);
+        functions.Add(addBloom);
     }
 
     void Update()
@@ -108,6 +112,11 @@ public class Upgrades : MonoBehaviour
         playerCam.eulerAngles = new Vector3(playerCam.eulerAngles.x, playerCam.eulerAngles.y, playerCam.eulerAngles.z + 180);
     }
 
+    void addBloom()
+    {
+        Player.GetComponentInChildren<BloomOptimized>().intensity += 1;
+    }
+
     public void resetStats()
     {
         Player.GetComponent<MainCharacterMovement>().refuelRate = refuelOriginal;
@@ -115,6 +124,7 @@ public class Upgrades : MonoBehaviour
         Player.GetComponent<MainCharacterMovement>().jetPackFuel = fuelOriginal;
         Player.GetComponent<MainCharacterMovement>().friction = moveOriginal;
         Player.GetComponent<MainCharacterMovement>().jumpSpeed = jumpOriginal;
+        Player.GetComponentInChildren<BloomOptimized>().intensity = bloomOriginal;
         totalUpgrades = 0;
         CameraShake.shake_intensity = 0;
     }
