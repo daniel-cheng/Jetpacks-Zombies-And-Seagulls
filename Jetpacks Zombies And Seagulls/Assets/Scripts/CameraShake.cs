@@ -53,7 +53,7 @@ public class CameraShake : MonoBehaviour
 			originRotation = _transform.localRotation;
 		}
 		shaking = true;
-		shake_decay = 0.002f;
+		shake_decay = 0.02f;
 	}
 		
 }

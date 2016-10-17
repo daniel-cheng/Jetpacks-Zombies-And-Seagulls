@@ -9,8 +9,8 @@ public class Respawn : MonoBehaviour
 	
 	void RespawnPlayer ()
     {
-        Destroy(MainCharacterMovement.character);
 		CameraShake.shake_intensity = 0f;
+        Destroy(MainCharacterMovement.character);
         SpawnCharacter.spawner.SpawnPlayer();
 	}
 
