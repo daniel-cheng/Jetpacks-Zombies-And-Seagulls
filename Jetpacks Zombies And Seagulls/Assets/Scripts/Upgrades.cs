@@ -16,6 +16,7 @@ public class Upgrades : MonoBehaviour
     float fuelOriginal;
     float refuelOriginal;
     float bloomOriginal;
+    Vector3 cameraEuler;
 
     Transform playerCam;
 
@@ -50,6 +51,7 @@ public class Upgrades : MonoBehaviour
         fuelOriginal = Player.GetComponent<MainCharacterMovement>().jetPackFuel;
         refuelOriginal = Player.GetComponent<MainCharacterMovement>().refuelRate;
         bloomOriginal = Player.GetComponentInChildren<BloomOptimized>().intensity;
+        cameraEuler = playerCam.eulerAngles;
 
         functions.Add(addJetFuel);
         functions.Add(addJumpSpeed);
@@ -126,6 +128,7 @@ public class Upgrades : MonoBehaviour
         Player.GetComponent<MainCharacterMovement>().jetPackFuel = fuelOriginal;
         Player.GetComponent<MainCharacterMovement>().friction = moveOriginal;
         Player.GetComponent<MainCharacterMovement>().jumpSpeed = jumpOriginal;
+        playerCam.eulerAngles = cameraEuler;
         Player.GetComponentInChildren<BloomOptimized>().intensity = bloomOriginal;
         totalUpgrades = 0;
     }

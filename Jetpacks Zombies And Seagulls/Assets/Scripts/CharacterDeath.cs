@@ -7,11 +7,6 @@ public class CharacterDeath : MonoBehaviour
 	public static bool isDead;
     GameObject deathUI;
 
-    void Awake ()
-    {
-		MainCharacterMovement.character = gameObject;
-    }
-
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Enemy") || col.gameObject.CompareTag("Environment"))

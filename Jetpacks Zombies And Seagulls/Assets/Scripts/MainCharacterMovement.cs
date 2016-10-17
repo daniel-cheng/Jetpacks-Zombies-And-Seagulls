@@ -15,6 +15,16 @@ public class MainCharacterMovement : MonoBehaviour {
     void Awake()
     {
         myRigidbody = GetComponent<Rigidbody>();
+
+        if (character == null)
+        {
+            character = gameObject;
+        }
+        else if (character != gameObject)
+        {
+            Debug.Log("YOU HAD TWO CHARACTERS!!");
+            Destroy(gameObject);
+        }
     }
 	
 	void FixedUpdate () {
