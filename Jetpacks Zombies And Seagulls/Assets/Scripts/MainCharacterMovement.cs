@@ -37,8 +37,6 @@ public class MainCharacterMovement : MonoBehaviour {
 					CameraShake.shake_intensity = 0.03f;
 					CameraShake.Shake ();
 				}
-			} else {
-				CameraShake.shake_intensity = 0f;
 			}
 		}
         if(jetPackFuel < 100 )
