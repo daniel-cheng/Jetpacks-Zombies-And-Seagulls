@@ -3,95 +3,120 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Upgrades : MonoBehaviour {
-
-	public static Upgrades upgrade;
-	private GameObject Player;
+public class Upgrades : MonoBehaviour
+{
+    public static Upgrades upgrade;
+    private GameObject Player;
     public static int totalUpgrades = 0;
 
     float moveOriginal;
     Vector3 maxSpeedOriginal;
-	float jumpOriginal;
-	float fuelOriginal;
-	float refuelOriginal;
+    float jumpOriginal;
+    float fuelOriginal;
+    float refuelOriginal;
 
-	public static List<Action> functions = new List<Action>();
+    Transform playerCam;
 
-	void Awake() {
-		if (upgrade == null) {
-			upgrade = this;
-		} else if (upgrade != this) {
-			Debug.Log ("I am not worthy");
-			Destroy (gameObject);
-		}
-	}
+    public static List<Action> functions = new List<Action>();
 
-	// Use this for initialization
-	void Start () {
-		Player = MainCharacterMovement.character;
+    void Awake()
+    {
+        if (upgrade == null)
+        {
+            upgrade = this;
+        }
+        else if (upgrade != this)
+        {
+            Debug.Log("I am not worthy");
+            Destroy(gameObject);
+        }
+    }
 
-		moveOriginal = Player.GetComponent<MainCharacterMovement> ().friction;
+    void Start()
+    {
+        Initialize();
+    }
+
+    void Initialize()
+    {
+        Player = MainCharacterMovement.character;
+        playerCam = Player.transform.FindChild("Main Camera");
+
+        moveOriginal = Player.GetComponent<MainCharacterMovement>().friction;
         maxSpeedOriginal = Player.GetComponent<MaxSpeed>().maxVelocity;
-        jumpOriginal = Player.GetComponent<MainCharacterMovement> ().jumpSpeed;
-		fuelOriginal = Player.GetComponent<MainCharacterMovement>().jetPackFuel;
-		refuelOriginal = Player.GetComponent<MainCharacterMovement> ().refuelRate;
+        jumpOriginal = Player.GetComponent<MainCharacterMovement>().jumpSpeed;
+        fuelOriginal = Player.GetComponent<MainCharacterMovement>().jetPackFuel;
+        refuelOriginal = Player.GetComponent<MainCharacterMovement>().refuelRate;
 
-		functions.Add (addJetFuel);
-		functions.Add (addJumpSpeed);
-		functions.Add (addRefuelRate);
-		functions.Add (addMoveSpeed);
-		functions.Add (addShake);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        functions.Add(addJetFuel);
+        functions.Add(addJumpSpeed);
+        functions.Add(addRefuelRate);
+        functions.Add(addMoveSpeed);
+        functions.Add(addShake);
+        functions.Add(flipCamera);
+    }
+
+    void Update()
+    {
         if (Player == null)
         {
-            Player = MainCharacterMovement.character;
+            Initialize();
         }
-	}
+    }
 
-	public void AddUpgrade() {
+    public void AddUpgrade()
+    {
         int rand = UnityEngine.Random.Range(0, functions.Count);
-        functions [rand]();
+        functions[rand]();
 
-		totalUpgrades++;
+        totalUpgrades++;
         Debug.Log("Total Upgrades= " + totalUpgrades + ", New Upgrade= " + functions[rand].Method.Name.ToString());
-	}
+    }
 
-	void addMoveSpeed() {
-		Player.GetComponent<MainCharacterMovement>().friction += 10;
+    void addMoveSpeed()
+    {
+        Player.GetComponent<MainCharacterMovement>().friction += 10;
         Player.GetComponent<MaxSpeed>().maxVelocity += new Vector3(10, 0, 10);
 
     }
 
-	void addJetFuel() {
+    void addJetFuel()
+    {
         Player.GetComponent<MainCharacterMovement>().jetPackFuel += 10;
-	
-	}
 
-	void addJumpSpeed() {
-		Player.GetComponent<MainCharacterMovement>().jumpSpeed += 10;
+    }
 
-	}
+    void addJumpSpeed()
+    {
+        Player.GetComponent<MainCharacterMovement>().jumpSpeed += 10;
 
-	void addRefuelRate() {
-		Player.GetComponent<MainCharacterMovement>().refuelRate += 10;
+    }
 
-	}
+    void addRefuelRate()
+    {
+        Player.GetComponent<MainCharacterMovement>().refuelRate += 10;
 
-	void addShake() {
-		CameraShake.shake_intensity += 0.1f;
-	}
+    }
 
-	public void resetStats() {
-		Player.GetComponent<MainCharacterMovement>().refuelRate = refuelOriginal;
+    void addShake()
+    {
+        CameraShake.shake_intensity += 0.1f;
+    }
+
+    void flipCamera()
+    {
+        playerCam.eulerAngles = new Vector3(playerCam.eulerAngles.x, playerCam.eulerAngles.y, playerCam.eulerAngles.z + 180);
+    }
+
+    public void resetStats()
+    {
+        Player.GetComponent<MainCharacterMovement>().refuelRate = refuelOriginal;
         Player.GetComponent<MaxSpeed>().maxVelocity = maxSpeedOriginal;
         Player.GetComponent<MainCharacterMovement>().jetPackFuel = fuelOriginal;
-		Player.GetComponent<MainCharacterMovement>().friction = moveOriginal;
-		Player.GetComponent<MainCharacterMovement>().jumpSpeed = jumpOriginal;
-		totalUpgrades = 0;
-		CameraShake.shake_intensity = 0;
-	}
-		
+        Player.GetComponent<MainCharacterMovement>().friction = moveOriginal;
+        Player.GetComponent<MainCharacterMovement>().jumpSpeed = jumpOriginal;
+        totalUpgrades = 0;
+        CameraShake.shake_intensity = 0;
+    }
+
 }
