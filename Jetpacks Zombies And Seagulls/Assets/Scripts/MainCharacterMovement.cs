@@ -9,6 +9,8 @@ public class MainCharacterMovement : MonoBehaviour {
 	public float jumpSpeed = 60;
     public float jetPackFuel = 100;
     public float refuelRate = 15;
+    public ParticleSystem leftJet;
+    public ParticleSystem rightJet;
 
     void Awake()
     {
@@ -33,12 +35,19 @@ public class MainCharacterMovement : MonoBehaviour {
 			if (jetPackFuel > 0) {
 				myRigidbody.AddForce (new Vector3 (0, jumpSpeed, 0));
 				jetPackFuel = jetPackFuel - 100 * Time.fixedDeltaTime;
-				if (CameraShake.shake_intensity == 0) {
+                leftJet.Play();
+                rightJet.Play();
+                if (CameraShake.shake_intensity == 0) {
 					CameraShake.shake_intensity = 0.03f;
 					CameraShake.Shake ();
 				}
 			}
 		}
+        else
+        {
+            leftJet.Stop();
+            rightJet.Stop();
+        }
         if(jetPackFuel < 100 )
         {
             jetPackFuel = jetPackFuel + refuelRate * Time.fixedDeltaTime;
