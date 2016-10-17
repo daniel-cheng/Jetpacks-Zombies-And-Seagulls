@@ -47,8 +47,8 @@ public class MainCharacterMovement : MonoBehaviour {
 				jetPackFuel = jetPackFuel - 100 * Time.fixedDeltaTime;
                 leftJet.Play();
                 rightJet.Play();
-                if (CameraShake.shake_intensity == 0) {
-					CameraShake.shake_intensity = 0.03f;
+                if (!CameraShake.shaking) {
+					CameraShake.shake_intensity = 0.04f;
 					CameraShake.Shake ();
 				}
 			}

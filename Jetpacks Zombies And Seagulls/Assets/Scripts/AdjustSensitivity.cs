@@ -12,16 +12,12 @@ public class AdjustSensitivity : MonoBehaviour
     void Start ()
     {
         bar.value = PlayerPrefs.GetFloat("Sensitivity");
-        if (bar.value < 0.1f)
-        {
-            bar.value = 0.1f;
-        }
         MouseLook.lookSpeed = bar.value;
+            
     }
 
     public void SetSensitivity(float value)
     {
-        Debug.Log("Set Sensitivity");
         MouseLook.lookSpeed = value;
     }
 
