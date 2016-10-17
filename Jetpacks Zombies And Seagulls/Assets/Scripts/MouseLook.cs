@@ -7,7 +7,7 @@ public class MouseLook : MonoBehaviour
 
     public Vector2 rotLimit;    //X=max, Y=min
 
-    public float lookSpeed;
+    public static float lookSpeed;
     float lookX;
     float lookY;
 
