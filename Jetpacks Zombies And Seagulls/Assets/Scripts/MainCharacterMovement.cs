@@ -63,4 +63,9 @@ public class MainCharacterMovement : MonoBehaviour {
             jetPackFuel = jetPackFuel + refuelRate * Time.fixedDeltaTime;
         }
     }
+
+    void OnDestroy ()
+    {
+        character = null;
+    }
 }
